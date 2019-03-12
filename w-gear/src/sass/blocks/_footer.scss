@@ -1,0 +1,115 @@
+footer {
+  margin: 0;
+  width: 100%;
+  .footer-content {
+    background: #121212;
+    display: flex;
+    width: 100%;
+    flex-flow: row nowrap;
+    align-items: top;
+    justify-content: space-around;
+    padding-bottom: 80px;
+  }
+  .footer-catalog {
+    display: flex;
+    flex-flow: column nowrap;
+    width: 350px;
+    height: 200px;
+    margin-left: 20%;
+    & a,
+    h3 {
+      color: #fff;
+      padding: 5px 5px;
+      font-size: 15px;
+      line-height: 2.5;
+      font-weight: 400;
+      font-family: 'Ubuntu';
+    }
+    & a:hover {
+      color: #005db4;
+      cursor: pointer;
+    }
+    & h3 {
+      margin-left: -5px;
+      font-size: 16px;
+      line-height: 2.5;
+      font-weight: 800;
+    }
+    .footer-catalog__items {
+      display: flex;
+      flex-flow: column wrap;
+    }
+  }
+  .navbar-footer {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    width: 100%;
+    margin-top: -40px;
+    .navbar__items_footer {
+      display: flex;
+      flex-flow: row nowrap;
+      border-radius: 2px;
+    }
+    .navbar__menu_footer {
+      font-size: 15px;
+      font-weight: 400;
+      font-family: 'Ubuntu';
+      display: flex;
+      flex-flow: row nowrap;
+      box-sizing: border-box;
+      background-color: #1a1a1a;
+      padding-right: 350px;
+      padding-left: 350px;
+      & p {
+        border-top: -30px;
+        position: relative;
+        display: inline-block;
+        padding: 30px 20px;
+        box-sizing: border-box;
+        &:hover {
+          border-top: 5px solid #005db4;
+          padding: 25px 20px;
+        }
+      }
+      & a {
+        color: #cccccc;
+      }
+    }
+  }
+}
+
+.footer-bottom {
+  width: 100%;
+  background-color: #000;
+  border-top: 10px solid #1a1a1a;
+  margin-top: -40px;
+}
+
+.footer-card {
+  display: flex;
+  justify-content: space-between;
+  width: 80%;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 60px 0;
+}
+
+.footer-bottom__support {
+  color: #fff;
+  margin-top: 2rem;
+  font-family: 'Ubuntu';
+  font-size: 15px;
+}
+
+.footer-bottom__support a {
+  color: #cccccc;
+  font-size: 15px;
+  &:hover {
+    color: #fff;
+    text-decoration: underline;
+  }
+}
+
+  
+ 

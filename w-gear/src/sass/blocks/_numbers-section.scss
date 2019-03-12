@@ -1,0 +1,33 @@
+.numbers-section {
+  font-family: "Ubuntu";
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+  justify-content: space-around;
+  width: 100%;
+  background: url(../images/bg-layer-01.png), url(../images/bg-layer-01.png) #005db4 repeat;
+  margin-top: 15px;
+  .numbers-container {
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+    justify-content: space-around;
+    padding-top: 80px;
+    padding-bottom: 80px;
+    & span {
+      color: #fff;
+      padding: 10px;
+      font-size: 15px;
+      line-height: 15px;
+      font-weight: 300;
+      border-top: 2px solid #fff;
+    }
+  }
+  .numbers {
+    font-size: 60px;
+    line-height: 60px;
+    font-weight: 700;
+    color: #fff;
+    padding-bottom: 10px;
+  }
+}

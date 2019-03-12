@@ -1,0 +1,314 @@
+.shop {
+  display: flex;
+  flex-flow: row nowrap;
+  width: 100%;
+  .home-catalog-links {
+    border-top: 10px solid #000;
+    border-bottom: 1px solid #777777;
+    margin-top: -45px;
+    height: 150px;
+    width: 100%;
+    position: absolute;
+    display: flex;
+    flex-flow: row nowrap;
+    z-index: -1;
+    .home-catalog-links__shop {
+      font-family: 'Ubuntu';
+      font-size: 13px;
+      padding-left: 5px;
+      padding-top: 100px;
+    }
+    .home-catalog-links__home {
+      font-family: 'Ubuntu';
+      font-size: 13px;
+      color: #005db4;
+      cursor: pointer;
+      padding-right: 5px;
+      padding-top: 100px;
+      margin-left: 96px;
+    }
+  }
+  .shop-position {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+    width: 90%;
+    margin-top: 130px;
+    .shop-search {
+      display: flex;
+      flex-direction: column;
+      width: 30%;
+    }
+    .shop-search__title {
+      font-family: 'Ubuntu';
+      margin-top: 40px;
+      font-size: 20px;
+      color: #464646;
+      font-weight: bolder;
+      margin-bottom: 20px;
+      text-transform: uppercase;
+    }
+    .shop-search__field {
+      font-family: 'Ubuntu';
+      font-size: 15px;
+      color: #777777;
+      background: #e5e5e5;
+      border-radius: 2px;
+      margin-top: 15px;
+      width: 100%;
+      height: 40px;
+      padding: 10px;
+      border: none;
+      &:focus {
+        border: 0.5px solid #99baca;
+        background: #f5fbfe;
+      }
+    }
+    .shop-search__button {
+      font-family: 'Ubuntu';
+      font-size: 15px;
+      color: #fff;
+      font-weight: 800;
+      width: 100%;
+      text-align: center;
+      margin-top: 5px;
+      box-sizing: border-box;
+      vertical-align: middle;
+      padding: 0 12px;
+      line-height: 30px;
+      margin-bottom: 10px;
+      height: 45px;
+      background: #005db4;
+      cursor: pointer;
+      text-transform: uppercase;
+      border-radius: 2px;
+      border: 1px solid #007aec;
+      &:hover {
+        color: #fff;
+        background: #007aec;
+      }
+    }
+    .shop-search__text {
+      font-size: 15px;
+      font-family: "Ubuntu";
+      color: #777777;
+    }
+    .shop-search__items {
+      display: flex;
+      flex-flow: column wrap;
+      width: 100%;
+    }
+    .shop-search__items_position {
+      display: flex;
+      flex-flow: row nowrap;
+      justify-content: space-between;
+      width: 100%;
+      font-size: 13.5px;
+      font-weight: 300;
+      font-family: "Ubuntu";
+      color: #777777;
+      line-height: 3;
+      &:hover {
+        background: #007aec;
+        border-radius: 2px;
+      }
+      &:hover .shop-search__items_position_amount {
+        color: #fff;
+      }
+    }
+    .range-property {
+      -webkit-appearance: none;
+      background-color: #005db4;
+      width: 100%;
+      height: 15px;
+    }
+    .shop-search__price {
+      align-self: flex-end;
+      font-size: 12px;
+      font-weight: 300;
+      font-family: "Ubuntu";
+      color: #464646;
+    }
+    .color-select {
+      .color-select__value {
+        width: 100%;
+        height: 30px;
+        color: #777777;
+        border: 1px solid #777777;
+        border-radius: 2px;
+      }
+    }
+    .shop-search__popularity-container {
+      font-family: "Ubuntu";
+      margin-top: 10px;
+      font-size: 14px;
+    }
+    .shop-search__popularity-container_items {
+      color: #005db4;
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+    .shop-search-tags-button {
+      padding: 10px;
+      background: #005db4;
+      font-size: 14px;
+      font-weight: 300;
+      line-height: 50px;
+      color: #ffffff;
+      font-family: "Ubuntu";
+      white-space: nowrap;
+      cursor: pointer;
+      &:hover {
+        background: #4ea9ff;
+        color: #005db4;
+      }
+    }
+    .product-choice {
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      width: 60%;
+      padding: 20px 0 0 30px;
+      &__title {
+        color: #000;
+        font-family: "Ubuntu";
+        text-transform: uppercase;
+      }
+      &__showing {
+        font-family: "Ubuntu";
+        margin-top: 18px;
+        margin-bottom: 30px;
+        font-size: 14px;
+      }
+    }
+    .shop-select {
+      align-self: flex-end;
+      width: 35%;
+      height: 30px;
+      padding: 15px;
+      font-size: 15px;
+      .catalog-items__datalist {
+        font-size: 15px;
+        font-family: "Ubuntu";
+        color: #777777;
+      }
+    }
+    .shop-product__view {
+      display: flex;
+      flex-flow: row wrap;
+      justify-content: space-between;
+      align-items: flex-start;
+      width: 100%;
+      margin-top: 40px;
+    }
+    .shop-product__view_goods {
+      display: flex;
+      flex-flow: column nowrap;
+      padding: 12px;
+      height: 350px;
+      width: 30%;
+      position: relative;
+      &:hover .shop-product__view_goods_image {
+        opacity: .1;
+        transition: all 0.5s ease;
+      }
+      &:hover .shop-product__view_goods_price {
+        opacity: .1;
+        transition: all 0.5s ease;
+      }
+      &:hover .shop-product__view_goods_select_hidden {
+        display: block;
+      }
+    }
+    .shop-product__view_goods_image {
+      display: block;
+      width: 100%;
+      height: auto;
+      margin-bottom: 30px;
+    }
+    .shop-product__view_goods_title {
+      font-family: "Ubuntu";
+      text-align: center;
+      font-size: 26px;
+      line-height: 26px;
+      color: #333333;
+      text-transform: uppercase;
+    }
+    .shop-product__view_goods_price {
+      align-self: flex-start;
+      display: inline-block;
+      font-family: "Ubuntu";
+      margin: 15px 0 0 5px;
+      padding: 0;
+      font-size: 14px;
+      line-height: 14px;
+      padding: 8px;
+      border: 1px solid #4ea9ff;
+      color: #005db4;
+      border-radius: 2px;
+    }
+    .shop-product__view_goods_select_hidden {
+      display: none;
+      top: 170px;
+      border-radius: 2px;
+      color: #ffffff;
+      background: #005db4;
+      border: 1px solid #005db4;
+      padding: 11px;
+      font-size: 14px;
+      line-height: 30px;
+      text-transform: uppercase;
+      cursor: pointer;
+      position: absolute;
+      align-self: center;
+      &:hover {
+        border: 1px solid #007aec;
+        background: #007aec;
+        color: #464646;
+        transition: all 0.5s ease;
+      }
+    }
+    .pages-button {
+      align-self: center;
+      margin-bottom: 100px;
+      margin-top: 80px;
+    }
+    .pages-button__list {
+      display: inline-block;
+      background: #e5e8de;
+      color: #242424;
+      text-decoration: none;
+      font-weight: normal;
+      min-width: 18px;
+      min-height: 21px;
+      padding: 3px 5px;
+      font-size: 14px;
+      line-height: 22px;
+      box-sizing: content-box;
+      text-align: center;
+      font-family: "Ubuntu";
+      &:hover {
+        background: #EEEEEE;
+      }
+    }
+    .pages-button__list_checked {
+      display: inline-block;
+      background: #005db4;
+      color: #ffffff;
+      text-decoration: none;
+      font-weight: normal;
+      min-width: 18px;
+      min-height: 21px;
+      padding: 3px 5px;
+      font-size: 14px;
+      line-height: 22px;
+      box-sizing: content-box;
+      text-align: center;
+      font-family: "Ubuntu";
+      &:hover {
+        cursor: text;
+      }
+    }
+  }
+}

@@ -1,0 +1,37 @@
+.slider-module {
+  border-top: 10px solid #000;
+  margin-top: -45px;
+  height: 595px;
+  width: 100%;
+  animation-name: slide;
+  animation-duration: 9s;
+  animation-iteration-count: infinite;
+  animation-direction: normal;
+  overflow: hidden;
+  @keyframes slide {
+    0% {
+      background: url(../images/f-slide-002-1.jpg);
+      background-position: 50% 50%;
+      background-size: cover;
+      background-repeat: no-repeat;
+      opasity: 1;
+      animation-timing-function: steps(1);
+    }
+    30% {
+      opasity: 1;
+      background: url(../images/f-slide-003-1.jpg);
+      background-position: 50% 50%;
+      background-size: cover;
+      background-repeat: no-repeat;
+      animation-timing-function: steps(1);
+    }
+    60% {
+      background: url(../images/f-slide-001-1.jpg);
+      background-position: 50% 50%;
+      background-size: cover;
+      background-repeat: no-repeat;
+      opasity: 1;
+      animation-timing-function: steps(1);
+    }
+  }
+}

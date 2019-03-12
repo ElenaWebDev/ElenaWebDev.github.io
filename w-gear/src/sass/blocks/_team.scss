@@ -1,0 +1,116 @@
+.team {
+  display: flex;
+  flex-flow: row wrap;
+  margin-left: 10%;
+  margin-right: 10%;
+  margin-bottom: 150px;
+  height: 485px;
+  box-sizing: border-box;
+  padding: 0 25px;
+  width: 80%;
+  .team-scroll {
+    display: flex;
+    flex-flow: row nowrap;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    margin-top: -70px;
+    &__previous,
+    &__next {
+      width: 52px;
+      height: 52px;
+      text-decoration: none;
+      text-align: center;
+      color: #005db4;
+      margin: 0;
+      font-size: 70px;
+      &:hover {
+        color: #007aec;
+      }
+    }
+    &__previous {
+      padding-right: 30px;
+    }
+  }
+  .team-container {
+    display: flex;
+    flex-flow: column nowrap;
+    .team-title {
+      margin: 100px 0 60px 0;
+      font-family: 'Ubuntu';
+      font-weight: 700;
+      color: #333333;
+      font-size: 20px;
+      text-transform: uppercase;
+      display: flex;
+      justify-content: center;
+      flex-flow: column nowrap;
+      align-items: center;
+    }
+    .team-top {
+      display: flex;
+      flex-flow: row nowrap;
+      justify-content: center;
+      height: 485px;
+      box-sizing: border-box;
+      .team-slideset {
+        padding: 0 18px;
+        &__position {
+          .team-1 {
+            margin-left: 20%;
+            margin-right: 20%;
+            .team-post-content {
+              border-bottom: 1px solid #777777;
+            }
+            .team-active {
+              color: #777777;
+              font-family: 'Ubuntu';
+              font-size: 13.5px;
+              line-height: 1.5;
+              & p {
+                margin: 15px 0;
+                line-height: 1.5;
+              }
+              .team-info {
+                .team-info-title {
+                  display: flex;
+                  flex-flow: row nowrap;
+                  font-family: 'Ubuntu';
+                  color: #333333;
+                  font-size: 20px;
+                  justify-content: center;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+    .team-slideset,
+    .team-slideset__hidden {
+      .team-1 {
+        .team-active {
+          text-align: center;
+          .team-view {
+            box-sizing: border-box;
+            overflow: hidden;
+            width: 200px;
+            height: 200px;
+            margin-bottom: 15px;
+            &__icon {
+              width: 150px;
+              height: 150px;
+              margin: 15px 0;
+              max-width: 100%;
+              box-sizing: border-box;
+              cursor: pointer;
+            }
+          }
+        }
+      }
+      &__hidden {
+        display: none;
+      }
+    }
+  }
+}

@@ -1,0 +1,91 @@
+.map {
+  .map-container {
+    width: 100%;
+    max-width: none;
+    padding: 0;
+    position: relative;
+    font-family: 'Ubuntu';
+  }
+  .contact-form {
+    position: absolute;
+    top: 15%;
+    left: 10%;
+    background: rgba(255, 255, 255, 0.9);
+    margin: 0;
+    padding: 0;
+    height: auto;
+    width: 550px;
+    line-height: 1.5;
+  }
+  contact-form__above_text {
+    margin: 0;
+    padding: 0;
+  }
+  .contact-form .contact-form__above_text {
+    padding: 40px 40px 20px;
+  }
+  .contact-form .contact-form__above_text .contact-form__above_text_title {
+    font-size: 24px;
+    line-height: 24px;
+    font-weight: 700;
+    display: inline-block;
+    padding-bottom: 20px;
+    color: #333333;
+  }
+  .contact-form .contact-form__above_text .contact-form__above_text_phone {
+    font-size: 22px;
+    line-height: 22px;
+    font-weight: 400;
+    display: inline-block;
+    padding: 0;
+    text-transform: uppercase;
+    color: #777777;
+  }
+  .contact-form .contact-form__under_form {
+    border-top: 1px solid #999999;
+    padding: 20px 40px 40px;
+  }
+  .contact-form .contact-form__under_form .contact-form__under_form_field {
+    width: 48%;
+    margin: 0;
+    padding: 0;
+  }
+  .contact-form .contact-form__under_form .contact-form__under_form_field .contact-form__under_form_field_property {
+    display: block;
+    margin-bottom: 20px;
+    padding: 0;
+  }
+  form input {
+    color: #777777;
+    background: #e5e5e5;
+    border: none;
+    border-radius: 2px;
+    font-size: 15px;
+    line-height: 15px;
+    padding: 10px;
+    margin: 5px 0;
+    height: auto;
+    font: 400 13.3333px Arial;
+  }
+  .contact-form__under_form_field_property {
+    position: relative;
+  }
+  .contact-form .contact-form__under_form .contact-form-button input {
+    width: 100%;
+  }
+  .contact-form-button input {
+    border-radius: 2px;
+    color: #ffffff;
+    background: #005db4;
+    border: 1px solid #005db4;
+    padding: 11px;
+    font-size: 14px;
+    line-height: 14px;
+    text-transform: uppercase;
+    cursor: pointer;
+  }
+  iframe {
+    width: 100%;
+    height: 750px;
+  }
+}

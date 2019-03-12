@@ -1,0 +1,125 @@
+.news {
+  display: flex;
+  flex-flow: column wrap;
+  margin: 0;
+  height: 485px;
+  box-sizing: border-box;
+  padding: 0 25px;
+  width: 80%;
+  .news-container {
+    display: flex;
+    flex-flow: column nowrap;
+    margin-left: 70px;
+    .news-title {
+      margin: 100px 0 60px 0;
+      font-family: 'Ubuntu';
+      font-weight: 700;
+      color: #333333;
+      font-size: 20px;
+      text-transform: uppercase;
+      display: flex;
+      justify-content: center;
+      flex-flow: column nowrap;
+      align-items: center;
+      margin-left: 180px;
+    }
+    .news-top {
+      display: flex;
+      flex-flow: row nowrap;
+      height: 485px;
+      box-sizing: border-box;
+      .news-slideset {
+        padding: 0 18px;
+        &__position {
+          .news-1 {
+            .news-active {
+              color: #777777;
+              font-family: 'Ubuntu';
+              font-size: 15px;
+              & p {
+                margin: 15px 0;
+				line-height: 1.5;
+              }
+              .post-button {
+                border: 1px solid #007aec;
+                border-radius: 3px;
+                padding: 11px;
+                font-family: 'Ubuntu';
+                color: #fff;
+                background: #005db4;
+                text-transform: uppercase;
+				line-height: 5;
+                &:hover {
+                  background: #007aec;
+                }
+              }
+              .info {
+                .info-title {
+                  display: flex;
+                  flex-flow: row nowrap;
+                  font-family: 'Ubuntu';
+                  font-weight: 700;
+                  color: #333333;
+                  font-size: 20px;
+                  text-transform: uppercase;
+                  justify-content: center;
+                }
+                .post-content {
+                  text-align: left;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+    .news-slideset, .news-slideset__hidden {
+      .news-scroll {
+        display: flex;
+        flex-flow: row nowrap;
+        width: 100%;
+        justify-content: flex-end;
+        margin-top: -70px;
+        &__previous,
+        &__next {
+          width: 52px;
+          height: 52px;
+          text-decoration: none;
+          text-align: center;
+          color: #005db4;
+          margin: 0;
+          font-size: 70px;
+          &:hover {
+            color: #007aec;
+          }
+        }
+        &__previous {
+          padding-right: 30px;
+        }
+      }
+      .news-1 {
+        .news-active {
+          .news-view {
+            box-sizing: border-box;
+            overflow: hidden;
+            width: 320px;
+            height: 190px;
+			margin-bottom: 15px;
+            &__icon {
+              width: 320px;
+              height: 190px;
+              transition: 0.3s ease-out;
+
+              &:hover {
+                transform: scale(1.1);
+              }
+            }
+          }
+        }
+      }
+	  &__hidden {
+	  display: none;
+	  }
+    }
+  }
+}

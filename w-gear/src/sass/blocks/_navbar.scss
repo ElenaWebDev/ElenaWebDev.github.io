@@ -1,0 +1,128 @@
+.navbar {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  widht: 100%;
+  margin-top: -45px;
+  .navbar__items {
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    width: 85%;
+    height: 80px;
+    background-color: #000;
+    position: relative;
+    border-radius: 2px;
+    &_logo {
+      width: 160px;
+      height: 80px;
+    }
+    &_search input {
+      width: 160px;
+      height: 40px;
+      border-radius: 5px;
+      border: none;
+      background: #000;
+      &:hover {
+        background: #005db4;
+      }
+    }
+    .icon {
+      padding-left: 130px;
+      padding-top: 15px;
+      position: absolute;
+      & i {
+        color: #fff;
+      }
+    }
+  }
+  &__menu {
+    font-size: 14px;
+    font-weight: 400;
+    font-family: 'Ubuntu';
+    display: flex;
+    flex-flow: row nowrap;
+    box-sizing: border-box;
+    & p {
+      position: relative;
+      display: inline-block;
+      &:hover a {
+        border-top: 5px solid #005db4;
+        padding-top: 27px;
+      }
+	  &:hover span {
+        border-top: 5px solid #005db4;
+        padding-top: 27px;
+      }
+    }
+  }
+  & a,
+  span {
+    color: #fff;
+  }
+  .dropdown {
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+    color: #cccccc;
+    font-size: 15px;
+    font-family: 'Ubuntu';
+    font-weight: 100;
+    & p {
+      padding-left: 10px;
+      pading-right: 10px;
+    }
+  }
+  .dropdown-content__home,
+  .dropdown-content__features,
+  .dropdown-content__blog {
+    display: none;
+    position: absolute;
+    margin-top: 35px;
+    margin-left: 40px;
+    background: rgba(1, 1, 1, 0.8);
+    color: #cccccc;
+    padding: 20px 200px 20px 30px;
+    line-height: 3;
+    white-space: nowrap;
+    font-size: 14px;
+    font-family: 'Ubuntu';
+  }
+  .dropdown-content__blog {
+    .column-1 {
+      &:nth-child(1) {
+        border-right: 1px solid #cccccc;
+        padding-right: 140px;
+      }
+      &:nth-child(2) {
+        padding-left: 20px;
+      }
+    }
+  }
+  .dropdown-content__view {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    .column {
+      &:nth-child(1),
+      &:nth-child(2) {
+        border-right: 1px solid #cccccc;
+        padding-right: 140px;
+      }
+      &:nth-child(2),
+      &:nth-child(3) {
+        padding-left: 20px;
+        padding-right: 200px;
+      }
+    }
+  }
+  .dropdown-home:hover~.dropdown-content__home {
+    display: block;
+  }
+  .dropdown-features:hover~.dropdown-content__features {
+    display: block;
+  }
+  .dropdown-blog:hover~.dropdown-content__blog {
+    display: block;
+  }
+}

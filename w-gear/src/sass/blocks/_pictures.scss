@@ -1,0 +1,56 @@
+.pictures {
+  display: flex;
+  margin-left: 10%;
+  margin-right: 10%;
+  height: 485px;
+  box-sizing: border-box;
+  width: 80%;
+  .pictures-container {
+    display: flex;
+    flex-flow: column wrap;
+  }
+  .pictures-slideset {
+    display: flex;
+    flex-flow: row wrap;
+    box-sizing: border-box;
+    &__position {
+      display: flex;
+      flex-flow: row nowrap;
+      box-sizing: border-box;
+      justify-content: space-around;
+      &__rows {}
+    }
+  }
+  .pictures-view {
+    box-sizing: border-box;
+    overflow: hidden;
+    width: 280px;
+    height: 190px;
+    margin-bottom: 15px;
+    &__icon {
+      width: 280px;
+      height: 190px;
+	  padding-right: 5%;
+      transition: 0.3s ease-out;
+      &:hover {
+        transform: scale(1.1);
+        opacity: 0.4;
+		height: 180px;
+		width: 270px;
+      }
+    }
+  }
+  .post-button {
+    border: 1px solid #007aec;
+    border-radius: 3px;
+    padding: 11px;
+    font-family: 'Ubuntu';
+    color: #fff;
+    background: #005db4;
+    text-transform: uppercase;
+    line-height: 5;
+    &:hover {
+      background: #007aec;
+    }
+  }
+}

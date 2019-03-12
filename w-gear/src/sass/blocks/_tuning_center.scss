@@ -1,0 +1,81 @@
+.tuning-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 250px;
+  margin-bottom: 100px;
+  overflow: hidden;
+  &__position {
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+    width: 75%;
+  }
+  .tuning-center__view_right {
+    display: flex;
+    flex-flow: column wrap;
+    align-items: flex-end;
+    justify-content: center;
+    animation-name: tuning-text;
+    animation-duration: 1s;
+    animation-iteration-count: infinite;
+    & p {
+      color: #464646;
+      padding-top: 30px;
+      font-family: 'Ubuntu';
+      font-size: 15px;
+      line-height: 1.5;
+      text-align: right;
+    }
+    &_text {}
+    .tuning-center__slider_header {
+      display: inline-block;
+      font-size: 40px;
+      line-height: 40px;
+      font-weight: 700;
+      color: #464646;
+      background: #007aec;
+      border-radius: 4px;
+      padding: 10px;
+      margin-bottom: 31px;
+      font-family: 'Ubuntu';
+    }
+  }
+  &__animation {
+    animation-name: tuning-image;
+    animation-duration: 1s;
+    animation-iteration-count: infinite;
+  }
+  &__view_left {
+    margin-right: 5px;
+    .tuning-center__image {
+      width: 340px;
+      height: auto;
+    }
+  }
+}
+
+@keyframes tuning-image {
+  0% {
+    transform: translateX(-20%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+.tuning-center__text_container {
+  animation-name: tuning-center-text;
+  animation-duration: 1s;
+}
+
+@keyframes tuning-text {
+  0% {
+    transform: translateX(20%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}

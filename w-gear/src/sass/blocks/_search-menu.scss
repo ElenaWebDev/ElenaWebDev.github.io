@@ -1,0 +1,69 @@
+.search-menu {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 30px;
+  margin-top: 30px;
+  .product-search {
+    margin-bottom: 10px;
+    box-sizing: border-box;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+    width: 85%;
+  }
+  .icon {
+    vertical-align: inherit;
+    color: #777777;
+    background: #f0f0f0;
+    border-radius: none;
+    font-size: 15px;
+    padding: 10px 15px 10px 15px;
+    margin-right: 3px;
+    margin-top: 2px;
+  }
+  .product-search__field {
+    vertical-align: inherit;
+    color: #777777;
+    background: #e5e5e5;
+    border-radius: 2px;
+    font-size: 15px;
+    line-height: 15px;
+    padding: 10px;
+    margin: 0;
+    height: 40px;
+    width: 75%;
+    border: none;
+    font-family: "Ubuntu";
+    margin-right: 3px;
+    &:focus {
+      background: #ebf7fd;
+      border: 0.1px solid #e2e4de;
+    }
+  }
+  .search__submit {
+    border-radius: 2px;
+    color: #ffffff;
+    background: #005db4;
+    border: 1px solid #005db4;
+    padding: 11px;
+    font-size: 14px;
+    line-height: 14px;
+    text-transform: uppercase;
+    cursor: pointer;
+    font-family: "Ubuntu";
+    font-width: 800;
+    width: 12%;
+	&:hover {
+	background: #007aec;
+	color: #005db4;
+	}
+  }
+  .example-search {
+    font-size: 15px;
+    font-family: "Ubuntu";
+    color: #777777;
+    padding-right: 640px;
+  }
+}
