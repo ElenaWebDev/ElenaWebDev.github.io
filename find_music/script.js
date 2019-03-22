@@ -179,7 +179,7 @@ let songs = document.getElementById("songs").onclick = function () {
 		let genresInfo = document.getElementById("genres-info");
 		genresInfo.innerHTML = "";
 		let stylesInfo = document.getElementById("styles-info");
-		stylesInfo.innerHTML = info;
+		stylesInfo.innerHTML = "";
 		let songsInfo = document.getElementById("songs-info");
 
 		songsInfo.innerHTML = info;
