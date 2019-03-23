@@ -153,16 +153,10 @@ input[id=search]:hover {
 	flex-flow: row wrap;
 	align-items: center;
 	width: 25%;
-	max-height: 400px;
-	background: #F5F5F5;
-	border-radius: 4px;
-	-webkit-box-shadow: 1px 1px 22px -2px rgba(0,0,0,0.75);
-	-moz-box-shadow: 1px 1px 22px -2px rgba(0,0,0,0.75);
-	box-shadow: 1px 1px 22px -2px rgba(0,0,0,0.75);
 }
 
 #add-btn {
-  background-color: #f2f2f2;
+  background-image: linear-gradient(to right top, #e7dd1d, #e7e24e, #e8e671, #e9ea8f, #ebeeac);
   color: #000033;
   padding: 6px 6px;
   font-size: 18px;
@@ -175,7 +169,6 @@ input[id=search]:hover {
 }
 
 #add-btn:hover {
-	background-color: #ebc834;
 	color: red;
 }
 

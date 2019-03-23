@@ -1,18 +1,8 @@
 /* localStorage / JSON */
 
-var albumsObj = JSON.stringify(project);
+window.localStorage.setItem('project', JSON.stringify(project));
 
-window.localStorage.setItem("myKey", albumsObj);
-
-var returnObj = JSON.parse(window.localStorage.getItem("myKey"))
-
-try {
-  window.localStorage.setItem("myKey", albumsObj);
-} catch (e) {
-  if (e == QUOTA_EXCEEDED_ERR) {
-   alert('Превышен лимит');
-  }
-}
+let returnObj = JSON.parse(window.localStorage.getItem('project'));
 
 /* localStorage end */
 
@@ -39,9 +29,9 @@ window.onclick = function(event) {
 function funсonload() {
 	let info = "";
 	
-	function artistsData(project) {
-	for (let i = 0; i < project.length; i++) {
-		let infoData = project[i].album;
+	function artistsData(returnObj) {
+	for (let i = 0; i < returnObj.length; i++) {
+		let infoData = returnObj[i].album;
 		for (let j = 0; j < infoData.length; j++) {
 			info += '<table cellspacing="5" cellpadding="10" id="mytable"><tbody><tr><td><img src="'+infoData[j].url+'"></img></td><td>'+infoData[j].name + '<p>Duration: '+infoData[j].time+'</p><p>Year: '+infoData[j].year+'</p></td></tr></tbody></table>';
 		}		
@@ -61,23 +51,19 @@ function funсonload() {
 	}
 }
 
-artistsData(project);
+artistsData(returnObj);
 
 } 
 
 window.onload = funсonload;
-
-	let info = "";
-
-	
 
 /* Create artists list */
 
 let artists = document.getElementById("artists").onclick = function () {
 	let info = "";
 
-	for (let i = 0; i < project.length; i++) {
-		info += '<table cellspacing="5" cellpadding="10" id="mytable"><tbody><tr><td><img src="'+project[i].url+'"></img></td><td>'+project[i].artist + '<p>'+project[i].genre+'</p></td></tr></tbody></table>';
+	for (let i = 0; i < returnObj.length; i++) {
+		info += '<table cellspacing="5" cellpadding="10" id="mytable"><tbody><tr><td><img src="'+returnObj[i].url+'"></img></td><td>'+returnObj[i].artist + '<p>'+returnObj[i].genre+'</p></td></tr></tbody></table>';
 	}
 	
 	let albumsInfo = document.getElementById("albums-info");
@@ -105,8 +91,8 @@ let albums = document.getElementById("albums").onclick = function () {
 let genres = document.getElementById("genres").onclick = function () {
 	let info = "";
 	
-	for (let i = 0; i < project.length; i++) {
-		let infoData = project[i].genre;
+	for (let i = 0; i < returnObj.length; i++) {
+		let infoData = returnObj[i].genre;
 		for (let j = 0; j < infoData.length; j++) {
 			
     info += '<table cellspacing="5" cellpadding="10" id="mytable"><tbody><tr><td>'+infoData[j]+'</td></tr></tbody></table>';
@@ -136,8 +122,8 @@ let genres = document.getElementById("genres").onclick = function () {
 let styles = document.getElementById("styles").onclick = function () {
 		let info = "";
 
-		for (let i = 0; i < project.length; i++) {
-		let infoData = project[i].style;
+		for (let i = 0; i < returnObj.length; i++) {
+		let infoData = returnObj[i].style;
 		for (let j = 0; j < infoData.length; j++) {
 				info += '<table cellspacing="5" cellpadding="10" id="mytable"><tbody><tr><td>'+infoData[j]+'</td></tr></tbody></table>';
 			}
@@ -161,13 +147,13 @@ let styles = document.getElementById("styles").onclick = function () {
 let songs = document.getElementById("songs").onclick = function () {
 		let info = "";
 
-		for (let i = 0; i < project.length; i++) {
-			let infoData = project[i].album;
+		for (let i = 0; i < returnObj.length; i++) {
+			let infoData = returnObj[i].album;
 		for (let j = 0; j < infoData.length; j++) {
 			let infoDataSongs = infoData[j].songs;
 			console.log(infoDataSongs);
 			for (let k = 0; k < infoDataSongs.length; k++) {
-				info += '<table cellspacing="5" cellpadding="10" id="mytable"><tbody><tr><td>'+infoDataSongs[k].composition+'</td><td>'+infoDataSongs[k].time+'</td><td>'+project[i].artist+'</td></tr></tbody></table>';
+				info += '<table cellspacing="5" cellpadding="10" id="mytable"><tbody><tr><td style="width: 300px;">'+infoDataSongs[k].composition+'</td><td>'+infoDataSongs[k].time+'</td><td>'+project[i].artist+'</td></tr></tbody></table>';
 				}
 			}
 	}	
