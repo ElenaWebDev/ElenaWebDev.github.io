@@ -7,6 +7,7 @@
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
 	<script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
 		<script src="script.js" async=""></script>
+
 	<title>Find Music</title>
 </head>
 <body>
@@ -45,25 +46,42 @@
 							<h2>Enter all the information:</h2>
 						</div>
 						<div class="modal-body">
-							<label for="">URL:
-								<input type="text" name="text" class="add-form" placeholder="Picture's URL">
+							<form id='form' data-form class="form">
+                  <label for="album-cover">URL:
+								<input type="text" name="album-cover" id= "album-cover" class="add-form" placeholder="Picture's URL" value="">
 							</label>
-							<label for="">Artist:
-								<input type="text" name="text" class="add-form" placeholder="Artist's name">
+                  <label for="album-title">Album:
+								<input type="text" name="album-title" id= "album-title" class="add-form" placeholder="Album's name" value="">
 							</label>
-							<label for="">Genre:
-								<input type="text" name="text" class="add-form" placeholder="Enter the genre">
+                  <label for="album-time">Time:
+								<input type="text" name="album-time" id= "album-time" class="add-form" placeholder="Enter the duration of the album" value="">
 							</label>
-							<label for="">Style:
-								<input type="text" name="text" class="add-form" placeholder="Enter the style">
+                  <label for="album-year">Year:
+								<input type="text" name="album-year" id= "album-year" class="add-form" placeholder="Enter the year of edition" value="">
 							</label>
-							<label for="">Album:
-								<input type="text" name="text" class="add-form" placeholder="Album's name">
+                  <label for="artist">Artist:
+								<input type="text" name="artist" id= "artist" class="add-form" placeholder="Artist's name" value="">
 							</label>
+                  <label for="artist-genre">Genre:
+								<input type="text" name="artist-genre" id= "artist-genre" class="add-form" placeholder="Enter the genre" value=""> 
+							</label>
+
+								<p>Add Songs:</p>
+								
+
+
+
+
+								<input type="text" name="songs" id= "songs" class="add-form" placeholder="Enter the song" value="" data-text><span id="clone">Add Song</span>
+							</div>
+						</form>
 						</div>
 						<div class="modal-footer">
-							<input type="submit" class="add-submit" value='Submit'>
-						</div>
+							<input type="submit" value='Add' id="add-album-button" class="add-form">
+							<input type="button" value='Cancel' id="cancel-album-button" class="add-form">
+							<input type="button" value='Edit' id="edit-album-button" class="add-form">
+		
+
 					</div>
 				</div>
 			</div>
@@ -79,7 +97,7 @@
 			</div>
 		</div>
 
-		<div class="footer-container" id="footer-container">	
+		<div class="footer-container" id="footer-container">
 		</div>
 	</div>
 

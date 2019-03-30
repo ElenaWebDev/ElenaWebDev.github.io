@@ -1,8 +1,47 @@
 /* localStorage / JSON */
 
+
+let btnAddAlbum = document.getElementById("add-album-button");
+btnAddAlbum.onclick = function() {
+  modal.style.display = "none";
+}
+
+
+
+$('#add-album-button').bind('click', function(){
+
+const newObject = new Object ();
+
+newObject.url = $('form input[name="artist-cover"]').val();
+
+newObject.artist = $('form input[name="artist"]').val();
+newObject.id = function() { Math.floor(Math.random() * 100000) };
+newObject.genre = [ $('form input[name="artist-genre"]').val() ];
+newObject.style = [ $('form input[name="artist-style"]').val() ];
+
+newObject.album = [{"url": $('form input[name="album-cover"]').val(), 
+"name": $('form input[name="album-title"]').val(), 
+"time": $('form input[name="album-time"]').val(), 
+"id": function () { return Math.floor(Math.random() * 100000) }, 
+"year": $('form input[name="album-year"]').val(), 
+"songs": [$('form input[name="songs"]').val()]
+}];
+
+
+
+project.push(newObject);
 window.localStorage.setItem('project', JSON.stringify(project));
 
+});
+
+
+
+
+
 let returnObj = JSON.parse(window.localStorage.getItem('project'));
+
+
+
 
 /* localStorage end */
 
@@ -14,6 +53,7 @@ let burger = document.getElementById("burger").onclick = function() {
 let modal = document.getElementById('myModal');
 let btn = document.getElementById("add-btn");
 let span = document.getElementsByClassName("close")[0];
+
 btn.onclick = function() {
     modal.style.display = "block";
 }
@@ -26,15 +66,22 @@ window.onclick = function(event) {
     }
 }
 
+let btnCancel = document.getElementById("cancel-album-button");
+btnCancel.onclick = function() {
+    modal.style.display = "none";
+}
+
 function funсonload() {
 	let info = "";
-	
+
 	function artistsData(returnObj) {
 	for (let i = 0; i < returnObj.length; i++) {
 		let infoData = returnObj[i].album;
 		for (let j = 0; j < infoData.length; j++) {
 			info += '<table cellspacing="5" cellpadding="10" id="mytable"><tbody><tr><td><img src="'+infoData[j].url+'"></img></td><td>'+infoData[j].name + '<p>Duration: '+infoData[j].time+'</p><p>Year: '+infoData[j].year+'</p></td></tr></tbody></table>';
 		}		
+
+}
 
 		let genresInfo = document.getElementById("genres-info");
 		genresInfo.innerHTML = "";
@@ -44,16 +91,20 @@ function funсonload() {
 		songsInfo.innerHTML = "";
 		let artistsInfo = document.getElementById("artists-info");
 		artistsInfo.innerHTML = "";
-		let albumsInfo = document.getElementById("albums-info");
+		
 
+		let albumsInfo = document.getElementById("albums-info");
 		albumsInfo.innerHTML = info;
 
+
+		
+
 	}
-}
+
 
 artistsData(returnObj);
 
-} 
+}
 
 window.onload = funсonload;
 
@@ -151,13 +202,12 @@ let songs = document.getElementById("songs").onclick = function () {
 			let infoData = returnObj[i].album;
 		for (let j = 0; j < infoData.length; j++) {
 			let infoDataSongs = infoData[j].songs;
-			console.log(infoDataSongs);
 			for (let k = 0; k < infoDataSongs.length; k++) {
-				info += '<table cellspacing="5" cellpadding="10" id="mytable"><tbody><tr><td style="width: 300px;">'+infoDataSongs[k].composition+'</td><td>'+infoDataSongs[k].time+'</td><td>'+project[i].artist+'</td></tr></tbody></table>';
-				}
+				info += '<table cellspacing="5" cellpadding="10" id="mytable"><tbody><tr><td style="width: 300px;">'+infoDataSongs[k].composition+'</td><td>'+infoDataSongs[k].time+'</td><td>'+returnObj[i].artist+'</td><td>'+infoData[j].name+'</td></tr></tbody></table>';
+				
 			}
 	}	
-
+}
 		let artistsInfo = document.getElementById("artists-info");
 		artistsInfo.innerHTML = "";
 		let albumsInfo = document.getElementById("albums-info");
@@ -186,3 +236,21 @@ $(document).ready(function(){
     });
     });
 });
+
+
+
+
+
+var form = document.querySelector('form');
+var input = document.querySelector('[data-text');
+var button = document.getElementById('clone');
+
+button.addEventListener("click", clone); 
+
+function clone() {
+	let cloneButton = input.cloneNode(true);
+	form.appendChild(cloneButton); 
+};
+
+
+

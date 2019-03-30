@@ -103,8 +103,8 @@ input[id=search]:hover {
 }
 
 
-.form-control-view {
-
+.footer-container {
+color: white;
 }
 
 /* burger */
@@ -259,6 +259,7 @@ img {
 	width: 100px;
 	max-width: 100px;
 	height: auto;
+	cursor: pointer;
 }
 
 p {
@@ -275,6 +276,7 @@ td {
 
 tr {
 	font-weight: bold;
+
 }
 
 #span-info {
