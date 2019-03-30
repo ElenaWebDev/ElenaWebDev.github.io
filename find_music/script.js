@@ -6,43 +6,6 @@ btnAddAlbum.onclick = function() {
   modal.style.display = "none";
 }
 
-
-
-$('#add-album-button').bind('click', function(){
-
-const newObject = new Object ();
-
-newObject.url = $('form input[name="artist-cover"]').val();
-
-newObject.artist = $('form input[name="artist"]').val();
-newObject.id = function() { Math.floor(Math.random() * 100000) };
-newObject.genre = [ $('form input[name="artist-genre"]').val() ];
-newObject.style = [ $('form input[name="artist-style"]').val() ];
-
-newObject.album = [{"url": $('form input[name="album-cover"]').val(), 
-"name": $('form input[name="album-title"]').val(), 
-"time": $('form input[name="album-time"]').val(), 
-"id": function () { return Math.floor(Math.random() * 100000) }, 
-"year": $('form input[name="album-year"]').val(), 
-"songs": [$('form input[name="songs"]').val()]
-}];
-
-
-
-project.push(newObject);
-window.localStorage.setItem('project', JSON.stringify(project));
-
-});
-
-
-
-
-
-let returnObj = JSON.parse(window.localStorage.getItem('project'));
-
-
-
-
 /* localStorage end */
 
 let burger = document.getElementById("burger").onclick = function() {
@@ -78,7 +41,8 @@ function funсonload() {
 	for (let i = 0; i < returnObj.length; i++) {
 		let infoData = returnObj[i].album;
 		for (let j = 0; j < infoData.length; j++) {
-			info += '<table cellspacing="5" cellpadding="10" id="mytable"><tbody><tr><td><img src="'+infoData[j].url+'"></img></td><td>'+infoData[j].name + '<p>Duration: '+infoData[j].time+'</p><p>Year: '+infoData[j].year+'</p></td></tr></tbody></table>';
+			info += '<table cellspacing="5" cellpadding="10" id="mytable"><tbody><tr><td><img src="'+infoData[j].url+'"></img></td><td>'+infoData[j].name + '<p class="add-info">Duration: '+infoData[j].time+'</p><p class="add-info">Year: '+infoData[j].year+'</p><p><button id="edit" class="open-modal-btn">Edit</button><button id="delete" class="open-modal-btn">Delete</button></p></td></tr></tbody></table>';
+
 		}		
 
 }
@@ -95,9 +59,6 @@ function funсonload() {
 
 		let albumsInfo = document.getElementById("albums-info");
 		albumsInfo.innerHTML = info;
-
-
-		
 
 	}
 
@@ -175,10 +136,16 @@ let styles = document.getElementById("styles").onclick = function () {
 
 		for (let i = 0; i < returnObj.length; i++) {
 		let infoData = returnObj[i].style;
+		
 		for (let j = 0; j < infoData.length; j++) {
+			
+			
 				info += '<table cellspacing="5" cellpadding="10" id="mytable"><tbody><tr><td>'+infoData[j]+'</td></tr></tbody></table>';
-			}
-		}
+			
+};
+
+		
+	}
 
 		let songsInfo = document.getElementById("songs-info");
 		songsInfo.innerHTML = "";
@@ -238,9 +205,6 @@ $(document).ready(function(){
 });
 
 
-
-
-
 var form = document.querySelector('form');
 var input = document.querySelector('[data-text');
 var button = document.getElementById('clone');
@@ -252,5 +216,35 @@ function clone() {
 	form.appendChild(cloneButton); 
 };
 
+let idNew = function() { 
+	Math.floor(Math.random() * 100000) 
+};
 
+$('#add-album-button').bind('click', function(){
+
+let newObject = new Object (); 
+
+newObject.url = $('form input[name="artist-cover"]').val();
+newObject.artist = $('form input[name="artist"]').val();
+newObject.id = idNew();
+newObject.genre = [ $('form input[name="artist-genre"]').val() ];
+newObject.style = [ $('form input[name="artist-style"]').val() ];
+newObject.album = [{"url": $('form input[name="album-cover"]').val(), 
+"name": $('form input[name="album-title"]').val(), 
+"time": $('form input[name="album-time"]').val(), 
+"id": idNew(), 
+"year": $('form input[name="album-year"]').val(), 
+"songs": [$('form input[name="songs"]').val()]
+}];
+
+
+let getObject = JSON.parse(localStorage.getItem('project'));
+	getObject.push(newObject);
+
+	localStorage.setItem('project', JSON.stringify(getObject));
+
+});
+
+
+let returnObj = JSON.parse(window.localStorage.getItem('project'));
 

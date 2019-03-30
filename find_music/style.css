@@ -288,6 +288,10 @@ tr {
 	margin-left: 20px;
 }
 
+#edit:hover, #delete:hover {
+	cursor: pointer;
+}
+
 @media screen and (max-width: 600px) {
 	
 	.burger-container_hidden {
