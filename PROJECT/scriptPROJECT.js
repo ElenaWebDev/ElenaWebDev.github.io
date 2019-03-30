@@ -41,7 +41,7 @@ function clone() {
 	form.appendChild(cloneButton); 
 };
 
-
+/*
 class Artist {
 	constructor(url, atrist, genre, style, album) {
 		this.url = url;
@@ -56,54 +56,98 @@ class Artist {
 	}
 }
 
-class Album {
-	constructor(url, name, time, year, songs) {
-		this.url = url;
-		this.name = name;
-		this.time = time; 
-		this.year = year; 
-		this.songs = [];
-		this.view = function() {
-			let albumsInfo = document.getElementById("albums-info");
-			albumsInfo.innerHTML = '<div><img src="'+this.url+'"></img>'+this.name + '<p>Duration'+this.time+'</p><p>Year: '+this.year+'</p></div>';
-		}
-	}
-}
-
-class Songs {
-	constructor(composition) {
-		this.composition = composition;
-		this.view = function() {
-			let songsInfo = document.getElementById("songs-info");
-			songsInfo.innerHTML = '<div><li>'+this.year+'</li></div>';
-		}
-	}
-}
 
 
 
-let alb = [];
+
+
+
 
 $('#add-album-button').on('click', function(){
 
 let artist = new Artist ($('form input[name="artist-cover"]').val(), $('form input[name="artist"]').val(), $('form input[name="artist-genre"]').val(), $('form input[name="artist-style"]').val());
 
-
-
-
-
-artist.view();
-
-alb.push(artist);
-
-
 let getObject = JSON.parse(localStorage.getItem('albums'));
-localStorage.setItem('albums', JSON.stringify(alb));
+	getObject.push(artist);
 
-
-
+	localStorage.setItem('albums', JSON.stringify(getObject));
 });
 
 
-//let getObject = JSON.parse(localStorage.getItem('albums'));
+
 //let album = new Album($('form input[name="album-cover"]').val(), $('form input[name="album-title"]').val(), $('form input[name="album-time"]').val(), $('form input[name="album-year"]').val())
+
+*/
+/*
+
+
+*/
+/*
+let idArtist = function () {
+	return Math.floor(Math.random() * 100000);
+}
+
+
+$('#add-album-button').on('click', function(){
+
+
+let album = new Album (idArtist(), $('form input[name="album-cover"]').val(), 
+$('form input[name="album-title"]').val(), 
+$('form input[name="album-time"]').val(), 
+$('form input[name="album-year"]').val()); //new Artist(idArtist(), $('form input[name="artist-cover"]').val(), $('form input[name="artist"]').val(), new Songs($('form input[name="songs"]').val())));
+
+let getObject = JSON.parse(localStorage.getItem('albums'));
+	getObject.push(album);
+
+	localStorage.setItem('albums', JSON.stringify(getObject));
+});
+*/
+
+class Artist {
+	constructor(id, url, artist, album) {
+		this.id = id;
+		this.url = url;
+		this.artist = artist;
+	}
+}
+
+
+class Album {
+	constructor(id, cover, title, year, songs) {
+		this.id = id;
+		this.cover = cover;
+		this.year = year;
+		this.title = title;
+		this.songs = songs;
+
+	}
+}
+
+
+class Songs {
+	constructor(id, compositions) {
+		this.id = id;
+		this.compositions = compositions;
+	}
+}
+
+
+
+
+
+
+let idArtist = function () {
+	return Math.floor(Math.random() * 100000);
+}
+
+$('#add-album-button').on('click', function(){
+
+let artist = new Artist (idArtist(), $('form input[name="artist-cover"]').val(), $('form input[name="artist"]').val(), new Album(idArtist(),$('form input[name="album-cover"]').val(), $('form input[name="album-title"]').val(), $('form input[name="album-time"]').val(), $('form input[name="album-year"]').val(), new Songs(idArtist(), $('form input[name="songs"]').val())));
+
+let getObject = JSON.parse(localStorage.getItem('albums'));
+	getObject.push(artist);
+
+	localStorage.setItem('albums', JSON.stringify(getObject));
+});
+
+
