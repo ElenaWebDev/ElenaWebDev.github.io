@@ -41,84 +41,28 @@ function clone() {
 	form.appendChild(cloneButton); 
 };
 
-/*
+
 class Artist {
-	constructor(url, atrist, genre, style, album) {
+	constructor(id, url, artist, genre, style) {
+		this.id = id;
 		this.url = url;
 		this.artist = artist;
 		this.genre = genre;
 		this.style = style;
-		this.album = [];
-		this.view = function() {
-			let artistsInfo = document.getElementById("artists-info");
-			artistsInfo.innerHTML = '<div><img src="'+this.url+'"></img>'+this.artist + '<p>Genre'+this.genre+'</p><p>Style: '+this.style+'</p></div>';
-		}
-	}
-}
-
-
-
-
-
-
-
-
-$('#add-album-button').on('click', function(){
-
-let artist = new Artist ($('form input[name="artist-cover"]').val(), $('form input[name="artist"]').val(), $('form input[name="artist-genre"]').val(), $('form input[name="artist-style"]').val());
-
-let getObject = JSON.parse(localStorage.getItem('albums'));
-	getObject.push(artist);
-
-	localStorage.setItem('albums', JSON.stringify(getObject));
-});
-
-
-
-//let album = new Album($('form input[name="album-cover"]').val(), $('form input[name="album-title"]').val(), $('form input[name="album-time"]').val(), $('form input[name="album-year"]').val())
-
-*/
-/*
-
-
-*/
-/*
-let idArtist = function () {
-	return Math.floor(Math.random() * 100000);
-}
-
-
-$('#add-album-button').on('click', function(){
-
-
-let album = new Album (idArtist(), $('form input[name="album-cover"]').val(), 
-$('form input[name="album-title"]').val(), 
-$('form input[name="album-time"]').val(), 
-$('form input[name="album-year"]').val()); //new Artist(idArtist(), $('form input[name="artist-cover"]').val(), $('form input[name="artist"]').val(), new Songs($('form input[name="songs"]').val())));
-
-let getObject = JSON.parse(localStorage.getItem('albums'));
-	getObject.push(album);
-
-	localStorage.setItem('albums', JSON.stringify(getObject));
-});
-*/
-
-class Artist {
-	constructor(id, url, artist, album) {
-		this.id = id;
-		this.url = url;
-		this.artist = artist;
 	}
 }
 
 
 class Album {
-	constructor(id, cover, title, year, songs) {
+	constructor(id, cover, title, time, year, artist, songs) {
 		this.id = id;
 		this.cover = cover;
+		this.title = title;	
+		this.time = time;	
 		this.year = year;
-		this.title = title;
+		this.album = artist;
 		this.songs = songs;
+
 
 	}
 }
@@ -132,22 +76,40 @@ class Songs {
 }
 
 
-
-
-
+$('#add-album-button').on('click', function(){
 
 let idArtist = function () {
 	return Math.floor(Math.random() * 100000);
 }
 
-$('#add-album-button').on('click', function(){
 
-let artist = new Artist (idArtist(), $('form input[name="artist-cover"]').val(), $('form input[name="artist"]').val(), new Album(idArtist(),$('form input[name="album-cover"]').val(), $('form input[name="album-title"]').val(), $('form input[name="album-time"]').val(), $('form input[name="album-year"]').val(), new Songs(idArtist(), $('form input[name="songs"]').val())));
+let album = new Album(idArtist(), $('form input[name="album-cover"]').val(), $('form input[name="album-title"]').val(), $('form input[name="album-time"]').val(), $('form input[name="album-year"]').val(), new Artist(idArtist(), $('form input[name="artist-cover"]').val(), $('form input[name="artist"]').val(), $('form input[name="artist-genre"]').val(), $('form input[name="artist-style"]').val()), new Songs(idArtist(), $('form input[name="songs"]').val()));
+
 
 let getObject = JSON.parse(localStorage.getItem('albums'));
-	getObject.push(artist);
+	getObject.push(album);
 
 	localStorage.setItem('albums', JSON.stringify(getObject));
 });
 
 
+
+let getInfo = JSON.parse(localStorage.getItem('albums'));
+
+let aaa = document.getElementById("artists").onclick = function() {
+	let a = "";
+for (let i = 0; i < getInfo.length; i++) {
+	if(getInfo[i].title !== undefined) {
+		a += '<table cellspacing="5" cellpadding="10" id="mytable"><tbody><tr><td><img src="'+getInfo[i].cover+'"></img></td><td><p>'+getInfo[i].title+'</p></td></tr></tbody></table>';
+		console.log(a); 
+		let artistsInfo = document.getElementById("artists-info");
+	
+	artistsInfo.innerHTML = a;
+
+
+	}
+	}
+}
+
+
+aaa();
