@@ -23,12 +23,13 @@ btn.onclick = function() {
 span.onclick = function() {
     modal.style.display = "none";
 }
+/*
 window.onclick = function(event) {
     if (event.target == modal) {
         modal.style.display = "none";
     }
 }
-
+*/
 
 var form = document.querySelector('form');
 var input = document.querySelector('[data-text');
@@ -102,11 +103,15 @@ let albums = document.getElementById("albums").onclick = function() {
 	let info = "";
 
 for (let i = 0; i < getInfo.length; i++) {
-	if(getInfo[i].title !== undefined) {
+	if(getInfo[i] !== null && getInfo[i] !== undefined) {
+	if(getInfo[i].title !== null && getInfo[i].title !== undefined) {
 		
-		info += '<table cellspacing="5" cellpadding="10" id="mytable"><tbody><tr><td><img src="'+getInfo[i].cover+'"></img></td><td><h3>'+getInfo[i].title+'</h3><p>Year: '+getInfo[i].year+'</p><p>Duration: '+getInfo[i].time+'</p><p><button id="edit" class="open-modal-btn">Edit</button><button id="delete" class="open-modal-btn">Delete</button></p></td></tr></tbody></table>'; 
+		info += '<table cellspacing="5" cellpadding="10" id="mytable" class="mytable"><tbody><tr><td><img name="cover" class="cover" src="'+getInfo[i].cover+'"></img></td><td><h3>'+getInfo[i].title+'</h3><p>Year: '+getInfo[i].year+'</p><p>Duration: '+getInfo[i].time+'</p><p><button id="edit" class="open-modal-btn">Edit</button><button id="delete" class="open-modal-btn">Delete</button></p></td></tr></tbody></table>'; 
+		
+
+
 		}
-		
+		}
 }
 		let genresInfo = document.getElementById("genres-info");
 		genresInfo.innerHTML = "";
@@ -131,9 +136,10 @@ let artist = document.getElementById("artists").onclick = function() {
 	let info = "";
 
 for (let i = 0; i < getInfo.length; i++) {
-	if(getInfo[i].artist !== undefined && getInfo[i].id !== undefined) {
+	if(getInfo[i] !== null && getInfo[i] !== undefined) {
+		if(getInfo[i].id !== undefined && getInfo[i].artist !== undefined) {
 		info += '<table cellspacing="5" cellpadding="10" id="mytable"><tbody><tr><td><img src="'+getInfo[i].url+'"></img></td><td><h3>'+getInfo[i].artist+'</h3></p></td></tr></tbody></table>'; 
-		
+		}
 		}
 		
 }
@@ -155,10 +161,11 @@ let genres = document.getElementById("genres").onclick = function () {
 	let info = "";
 	
 	for (let i = 0; i < getInfo.length; i++) {
-		if(getInfo[i].genre !== undefined) {
+		if(getInfo[i] !== null && getInfo[i] !== undefined) {
+					if(getInfo[i] !== null && getInfo[i].genre !== undefined) {
 			
     info += '<table cellspacing="5" cellpadding="10" id="mytable"><tbody><tr><td>'+getInfo[i].genre+'</td></tr></tbody></table>';
-
+}
 				}
 			
 		}
@@ -183,12 +190,13 @@ let styles = document.getElementById("styles").onclick = function () {
 		let info = "";
 
 	for (let i = 0; i < getInfo.length; i++) {
+			if(getInfo[i] !== null && getInfo[i] !== undefined) {
 		if(getInfo[i].style !== undefined) {
 			
     info += '<table cellspacing="5" cellpadding="10" id="mytable"><tbody><tr><td>'+getInfo[i].style+'</td></tr></tbody></table>';
 
 				}
-			
+			}
 		}
 
 		let songsInfo = document.getElementById("songs-info");
@@ -208,17 +216,20 @@ let songs = document.getElementById("songs").onclick = function () {
 		let info = "";
 
 for (let i = 0; i < getInfo.length; i++) {
-	let a = getInfo[i].songs;
+		if(getInfo[i] !== null && getInfo[i] !== undefined) {	
+	let a = getInfo[i];
 	console.log(a);
-	
-	
-	
-			
-    info += '<table cellspacing="5" cellpadding="10" id="mytable"><tbody><tr><td>'+getInfo[i].compositions+'</td></tr></tbody></table>';
-}
 
-				
+			if(a !== null && a !== undefined) {
+				for(let j = 0; j < a.length; j++) {
+	
+	
 			
+    info += '<table cellspacing="5" cellpadding="10" id="mytable"><tbody><tr><td>'+a[j].songs+'</td></tr></tbody></table>';
+}
+}
+				}
+			}
 		
 		let artistsInfo = document.getElementById("artists-info");
 		artistsInfo.innerHTML = "";
@@ -232,4 +243,47 @@ for (let i = 0; i < getInfo.length; i++) {
 
 		songsInfo.innerHTML = info;
 
+}
+
+
+
+
+
+   
+
+
+		
+   
+    $(document).on("click", "#edit", function(){
+    editAlbum();
+
+}) 
+
+
+
+function editAlbum() {
+  let data = $(this).attr('data');
+$('#myModal').css('display', 'block');
+  $('form #album-cover').val();
+  $('form #album-title').val();
+  $('form #album-time').val();
+  $('form #album-year').val();
+  $('form #artist').val();
+  $('form #artist-genre').val();
+  $('form #songs').val();
+
+    $('#add-album-button').attr('data', data);
+}
+
+
+ $(document).on("click", "#delete", function(){
+  
+deleteInfo();
+
+}) 
+
+function deleteInfo() {
+  let data = $(this).attr('data');
+  delete getInfo[data];
+  localStorage.setItem('albums', JSON.stringify(getInfo));
 }
