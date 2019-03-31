@@ -96,20 +96,140 @@ let getObject = JSON.parse(localStorage.getItem('albums'));
 
 let getInfo = JSON.parse(localStorage.getItem('albums'));
 
-let aaa = document.getElementById("artists").onclick = function() {
-	let a = "";
+
+
+let albums = document.getElementById("albums").onclick = function() {
+	let info = "";
+
 for (let i = 0; i < getInfo.length; i++) {
 	if(getInfo[i].title !== undefined) {
-		a += '<table cellspacing="5" cellpadding="10" id="mytable"><tbody><tr><td><img src="'+getInfo[i].cover+'"></img></td><td><p>'+getInfo[i].title+'</p></td></tr></tbody></table>';
-		console.log(a); 
+		
+		info += '<table cellspacing="5" cellpadding="10" id="mytable"><tbody><tr><td><img src="'+getInfo[i].cover+'"></img></td><td><h3>'+getInfo[i].title+'</h3><p>Year: '+getInfo[i].year+'</p><p>Duration: '+getInfo[i].time+'</p><p><button id="edit" class="open-modal-btn">Edit</button><button id="delete" class="open-modal-btn">Delete</button></p></td></tr></tbody></table>'; 
+		}
+		
+}
+		let genresInfo = document.getElementById("genres-info");
+		genresInfo.innerHTML = "";
+		let stylesInfo = document.getElementById("styles-info");
+		stylesInfo.innerHTML = "";
+		let songsInfo = document.getElementById("songs-info");
+		songsInfo.innerHTML = "";
 		let artistsInfo = document.getElementById("artists-info");
-	
-	artistsInfo.innerHTML = a;
+		artistsInfo.innerHTML = "";
+		
+
+		let albumsInfo = document.getElementById("albums-info");
+		albumsInfo.innerHTML = info;
 
 
-	}
-	}
 }
 
 
-aaa();
+
+
+let artist = document.getElementById("artists").onclick = function() {
+	let info = "";
+
+for (let i = 0; i < getInfo.length; i++) {
+	if(getInfo[i].artist !== undefined && getInfo[i].id !== undefined) {
+		info += '<table cellspacing="5" cellpadding="10" id="mytable"><tbody><tr><td><img src="'+getInfo[i].url+'"></img></td><td><h3>'+getInfo[i].artist+'</h3></p></td></tr></tbody></table>'; 
+		
+		}
+		
+}
+		let genresInfo = document.getElementById("genres-info");
+		genresInfo.innerHTML = "";
+		let stylesInfo = document.getElementById("styles-info");
+		stylesInfo.innerHTML = "";
+		let songsInfo = document.getElementById("songs-info");
+		songsInfo.innerHTML = "";
+		let albumsInfo = document.getElementById("albums-info");
+		albumsInfo.innerHTML = "";
+
+		let artistsInfo = document.getElementById("artists-info");
+		artistsInfo.innerHTML = info;
+
+}
+
+let genres = document.getElementById("genres").onclick = function () {
+	let info = "";
+	
+	for (let i = 0; i < getInfo.length; i++) {
+		if(getInfo[i].genre !== undefined) {
+			
+    info += '<table cellspacing="5" cellpadding="10" id="mytable"><tbody><tr><td>'+getInfo[i].genre+'</td></tr></tbody></table>';
+
+				}
+			
+		}
+
+
+
+		let stylesInfo = document.getElementById("styles-info");
+		stylesInfo.innerHTML = "";
+		let songsInfo = document.getElementById("songs-info");
+		songsInfo.innerHTML = "";
+		let artistsInfo = document.getElementById("artists-info");
+		artistsInfo.innerHTML = "";
+		let albumsInfo = document.getElementById("albums-info");
+		albumsInfo.innerHTML = "";
+		let genresInfo = document.getElementById("genres-info");
+
+		genresInfo.innerHTML = info;
+
+	}
+
+let styles = document.getElementById("styles").onclick = function () {
+		let info = "";
+
+	for (let i = 0; i < getInfo.length; i++) {
+		if(getInfo[i].style !== undefined) {
+			
+    info += '<table cellspacing="5" cellpadding="10" id="mytable"><tbody><tr><td>'+getInfo[i].style+'</td></tr></tbody></table>';
+
+				}
+			
+		}
+
+		let songsInfo = document.getElementById("songs-info");
+		songsInfo.innerHTML = "";
+		let artistsInfo = document.getElementById("artists-info");
+		artistsInfo.innerHTML = "";
+		let albumsInfo = document.getElementById("albums-info");
+		albumsInfo.innerHTML = "";
+		let genresInfo = document.getElementById("genres-info");
+		genresInfo.innerHTML = "";
+		let stylesInfo = document.getElementById("styles-info");
+
+		stylesInfo.innerHTML = info;
+}
+
+let songs = document.getElementById("songs").onclick = function () {
+		let info = "";
+
+for (let i = 0; i < getInfo.length; i++) {
+	let a = getInfo[i].songs;
+	console.log(a);
+	
+	
+	
+			
+    info += '<table cellspacing="5" cellpadding="10" id="mytable"><tbody><tr><td>'+getInfo[i].compositions+'</td></tr></tbody></table>';
+}
+
+				
+			
+		
+		let artistsInfo = document.getElementById("artists-info");
+		artistsInfo.innerHTML = "";
+		let albumsInfo = document.getElementById("albums-info");
+		albumsInfo.innerHTML = "";
+		let genresInfo = document.getElementById("genres-info");
+		genresInfo.innerHTML = "";
+		let stylesInfo = document.getElementById("styles-info");
+		stylesInfo.innerHTML = "";
+		let songsInfo = document.getElementById("songs-info");
+
+		songsInfo.innerHTML = info;
+
+}
