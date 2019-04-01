@@ -1,12 +1,7 @@
-/* localStorage / JSON */
-
-
 let btnAddAlbum = document.getElementById("add-album-button");
 btnAddAlbum.onclick = function() {
   modal.style.display = "none";
 }
-
-/* localStorage end */
 
 let burger = document.getElementById("burger").onclick = function() {
 	let menu = document.getElementById("menu-ul");
@@ -17,9 +12,19 @@ let modal = document.getElementById('myModal');
 let btn = document.getElementById("add-btn");
 let span = document.getElementsByClassName("close")[0];
 
-btn.onclick = function() {
-    modal.style.display = "block";
-}
+//btn.onclick = function() {
+var flag = false;
+$(document).bind('touchstart click', function(){
+  if (!flag) {
+    flag = true;
+    setTimeout(function(){ flag = false; }, 100);
+       modal.style.display = "block";
+  }
+
+  return false
+});
+
+
 span.onclick = function() {
     modal.style.display = "none";
 }
