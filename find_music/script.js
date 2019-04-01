@@ -2,17 +2,31 @@
 
 
 let btnAddAlbum = document.getElementById("add-album-button");
+
+let iOS = navigator.userAgent.match(/iPhone|iPad|iPod/i);
+let event = "click";
+
+if(iOS != null)
+    event = "touchstart";
+
+$(function() {
+    $(document).on(event, ".burger-container_hidden", function(e) {
+    	let menu = document.getElementById("menu-ul");
+		menu.classList.toggle("header-menu_navigation_visible");
+    });
+});
+
 btnAddAlbum.onclick = function() {
   modal.style.display = "none";
 }
 
 /* localStorage end */
-
+/*
 let burger = document.getElementById("burger").onclick = function() {
 	let menu = document.getElementById("menu-ul");
 		menu.classList.toggle("header-menu_navigation_visible");
 }
-
+*/
 let modal = document.getElementById('myModal');
 let btn = document.getElementById("add-btn");
 let span = document.getElementsByClassName("close")[0];
