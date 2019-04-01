@@ -1,3 +1,8 @@
+$(this).on("click touchstart", function() {
+  modal.style.display = "block";
+  return false;
+});
+
 let btnAddAlbum = document.getElementById("add-album-button");
 btnAddAlbum.onclick = function() {
   modal.style.display = "none";
@@ -12,18 +17,9 @@ let modal = document.getElementById('myModal');
 let btn = document.getElementById("add-btn");
 let span = document.getElementsByClassName("close")[0];
 
-//btn.onclick = function() {
-var flag = false;
-$thing.bind('touchstart click', function(){
-  if (!flag) {
-    flag = true;
-    setTimeout(function(){ flag = false; }, 100);
-       modal.style.display = "block";
+btn.onclick = function() {
+modal.style.display = "block";
   }
-
-  return false
-});
-
 
 span.onclick = function() {
     modal.style.display = "none";
