@@ -1,8 +1,3 @@
-$(this).on("click touchstart", function() {
-  modal.style.display = "block";
-  return false;
-});
-
 let btnAddAlbum = document.getElementById("add-album-button");
 btnAddAlbum.onclick = function() {
   modal.style.display = "none";
