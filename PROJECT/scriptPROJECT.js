@@ -1,10 +1,13 @@
+/* проверка наличия localStorage */
 
+if (localStorage.getItem("albums") === null) { localStorage.setItem("albums", JSON.stringify([])) } else { console.log("It was created")};
+
+/* проверка закончена */
 
 let burger = document.getElementById("burger").onclick = function() {
 	let menu = document.getElementById("menu-ul");
 		menu.classList.toggle("header-menu_navigation_visible");
 }
-
 
 let btnAddAlbum = document.getElementById("add-album-button");
 btnAddAlbum.onclick = function() {
