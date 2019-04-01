@@ -17,8 +17,12 @@ let modal = document.getElementById('myModal');
 let btn = document.getElementById("add-btn");
 let span = document.getElementsByClassName("close")[0];
 
+$('#add-btn').on('touchstart click', function(e){
+    e.stopPropagation(); e.preventDefault();
+     modal.style.display = "block"; 
 
-	$('#add-btn').on('touchend mouseup', function () {     modal.style.display = "block"; });
+});
+	
 
 span.onclick = function() {
     modal.style.display = "none";
