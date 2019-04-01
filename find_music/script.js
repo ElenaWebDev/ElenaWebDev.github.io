@@ -1,8 +1,12 @@
-let btnAddAlbum = document.getElementById("add-album-button");
+/* localStorage / JSON */
 
+
+let btnAddAlbum = document.getElementById("add-album-button");
 btnAddAlbum.onclick = function() {
   modal.style.display = "none";
 }
+
+/* localStorage end */
 
 let burger = document.getElementById("burger").onclick = function() {
 	let menu = document.getElementById("menu-ul");
@@ -16,8 +20,6 @@ let span = document.getElementsByClassName("close")[0];
 btn.onclick = function() {
     modal.style.display = "block";
 }
-	
-
 span.onclick = function() {
     modal.style.display = "none";
 }
@@ -29,9 +31,8 @@ window.onclick = function(event) {
 
 let btnCancel = document.getElementById("cancel-album-button");
 btnCancel.onclick = function() {
-	{     modal.style.display = "none"; 
-};
-
+    modal.style.display = "none";
+}
 
 function funсonload() {
 	let info = "";
@@ -246,4 +247,3 @@ let getObject = JSON.parse(localStorage.getItem('project'));
 
 
 let returnObj = JSON.parse(window.localStorage.getItem('project'));
-
