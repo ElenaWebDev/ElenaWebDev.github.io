@@ -17,11 +17,9 @@ let modal = document.getElementById('myModal');
 let btn = document.getElementById("add-btn");
 let span = document.getElementsByClassName("close")[0];
 
-$('#add-btn').on('touchstart click', function(e){
-    e.stopPropagation(); e.preventDefault();
-     modal.style.display = "block"; 
-
-});
+btn.onclick = function() {
+    modal.style.display = "block";
+}
 	
 
 span.onclick = function() {
@@ -34,8 +32,10 @@ window.onclick = function(event) {
 }
 
 let btnCancel = document.getElementById("cancel-album-button");
-//btnCancel.onclick = function() {
-	$('#cancel-album-button').on('touchend mouseup', function () {     modal.style.display = "none"; });
+btnCancel.onclick = function() {
+	{     modal.style.display = "none"; 
+};
+
 
 function funсonload() {
 	let info = "";
