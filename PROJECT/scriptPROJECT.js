@@ -1,3 +1,17 @@
+var is_pointer = !!window.PointerEvent;
+
+var is_touch = navigator.maxTouchPoints && navigator.maxTouchPoints > 0;
+
+if (is_pointer) {
+    this.$handle.on("pointerdown", this.pointerDown.bind(this));
+} else {
+    if (is_touch) {
+        this.$handle.on("touchstart", this.pointerDown.bind(this));
+    } else {
+        this.$handle.on("mousedown", this.pointerDown.bind(this));
+    }
+}
+
 let burger = document.getElementById("burger").onclick = function() {
 	let menu = document.getElementById("menu-ul");
 		menu.classList.toggle("header-menu_navigation_visible");
