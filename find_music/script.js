@@ -30,9 +30,8 @@ window.onclick = function(event) {
 }
 
 let btnCancel = document.getElementById("cancel-album-button");
-btnCancel.onclick = function() {
-    modal.style.display = "none";
-}
+//btnCancel.onclick = function() {
+	$('#cancel-album-button').on('touchend mouseup', function () {     modal.style.display = "none"; });
 
 function funсonload() {
 	let info = "";
