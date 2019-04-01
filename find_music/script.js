@@ -1,3 +1,9 @@
+/* проверка наличия localStorage */
+
+if (localStorage.getItem("project") === null) { localStorage.setItem("project", JSON.stringify([])) } else { console.log("It was created")};
+
+/* проверка закончена */
+
 let btnAddAlbum = document.getElementById("add-album-button");
 btnAddAlbum.onclick = function() {
   modal.style.display = "none";
