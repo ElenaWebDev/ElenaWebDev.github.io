@@ -45,12 +45,12 @@
 							<h2>Enter all the information:</h2>
 						</div>
 						<div class="modal-body">
-							<form id='form' data-form class="form">
+							<form id='form' data-form class="form" name="form">
 								<label for="artist-cover">Artist's picture URL:
 								<input type="text" name="artist-cover" id= "artist-cover" class="add-form" placeholder="Artist's picture URL" value="">
 							</label>
 								<label for="artist">Artist:
-								<input type="text" name="artist" id= "artist" class="add-form" placeholder="Artist's name" value="">
+								<input type="text" name="artist" id= "artist" class="add-form" placeholder="Artist's name" value="" required="">
 							</label>
                   <label for="artist-genre">Genre:
 								<input type="text" name="artist-genre" id= "artist-genre" class="add-form" placeholder="Enter the genre" value=""> 
@@ -59,10 +59,10 @@
 								<input type="text" name="artist-style" id= "artist-style" class="add-form" placeholder="Enter the style" value=""> 
 							</label>
                   <label for="album-cover">URL:
-								<input type="text" name="album-cover" id= "album-cover" class="add-form" placeholder="Picture's URL" value="">
+								<input type="text" name="album-cover" id= "album-cover" class="add-form" placeholder="Picture's URL" value="" required="">
 							</label>
                   <label for="album-title">Album:
-								<input type="text" name="album-title" id= "album-title" class="add-form" placeholder="Album's name" value="">
+								<input type="text" name="album-title" id= "album-title" class="add-form" placeholder="Album's name" value="" required="">
 							</label>
                   <label for="album-time">Time:
 								<input type="text" name="album-time" id= "album-time" class="add-form" placeholder="Enter the duration of the album" value="">
@@ -76,25 +76,21 @@
 								
 
 								<input type="text" name="songs" id= "songs" class="add-form" placeholder="Enter the song" value="" data-text><span id="clone">Add Song</span>
+								
 							</div>
-						</form>
-						</div>
-						<div class="modal-footer">
-							<input type="submit" value='Add' id="add-album-button" class="add-form">
-							<input type="button" value='Cancel' id="cancel-album-button" class="add-form">
-							<input type="button" value='Edit' id="edit-album-button" class="add-form">
+							<div class="modal-footer">
+							<input type="submit" value='Submit' id="add-album-button" class="add-in-form-yes" onclick="checkForm(this.form)";return false">
+							<input type="button" value='Cancel' id="cancel-album-button" class="add-in-form-no">
 		
 
 					</div>
+						</form>
+						</div>
+						
 				</div>
 			</div>
 			<div class="center-content" id="center-content">
-				<div class="center-content_info" class="artists-info" id="artists-info">
-				</div>
 				<div class="center-content_info" class="albums-info" id="albums-info"></div>
-				<div class="center-content_info" class="genres-info" id="genres-info"></div>
-				<div class="center-content_info" class="styles-info" id="styles-info"></div>
-				<div class="center-content_info" class="songs-info" id="songs-info"></div>
 			</div>
 			<div class="right-content">
 			</div>

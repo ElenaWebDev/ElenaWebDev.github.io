@@ -1,3 +1,9 @@
+let burger = document.getElementById("burger").onclick = function() {
+	let menu = document.getElementById("menu-ul");
+		menu.classList.toggle("header-menu_navigation_visible");
+}
+
+
 let btnAddAlbum = document.getElementById("add-album-button");
 btnAddAlbum.onclick = function() {
   modal.style.display = "none";
@@ -6,11 +12,6 @@ btnAddAlbum.onclick = function() {
 let btnCancel = document.getElementById("cancel-album-button");
 btnCancel.onclick = function() {
     modal.style.display = "none";
-}
-
-let burger = document.getElementById("burger").onclick = function() {
-	let menu = document.getElementById("menu-ul");
-		menu.classList.toggle("header-menu_navigation_visible");
 }
 
 let modal = document.getElementById('myModal');
@@ -23,13 +24,15 @@ btn.onclick = function() {
 span.onclick = function() {
     modal.style.display = "none";
 }
-/*
-window.onclick = function(event) {
-    if (event.target == modal) {
-        modal.style.display = "none";
-    }
-}
-*/
+
+function checkForm(form){
+    if (document.getElementById('artist').value=="") {
+        alert("Enter the name");
+        return false;
+    };
+    return true;
+};
+
 
 var form = document.querySelector('form');
 var input = document.querySelector('[data-text');
@@ -37,8 +40,11 @@ var button = document.getElementById('clone');
 
 button.addEventListener("click", clone); 
 
+let cloneCount = 1;
+ 
 function clone() {
 	let cloneButton = input.cloneNode(true);
+	cloneButton.setAttribute('id', 'songs'+ cloneCount++);
 	form.appendChild(cloneButton); 
 };
 
@@ -95,195 +101,102 @@ let getObject = JSON.parse(localStorage.getItem('albums'));
 
 
 
-let getInfo = JSON.parse(localStorage.getItem('albums'));
+let getInfo = JSON.parse(localStorage.getItem('albums') || []);
 
 
 
 let albums = document.getElementById("albums").onclick = function() {
 	let info = "";
 
-for (let i = 0; i < getInfo.length; i++) {
-	if(getInfo[i] !== null && getInfo[i] !== undefined) {
-	if(getInfo[i].title !== null && getInfo[i].title !== undefined) {
-		
-		info += '<table cellspacing="5" cellpadding="10" id="mytable" class="mytable"><tbody><tr><td><img name="cover" class="cover" src="'+getInfo[i].cover+'"></img></td><td><h3>'+getInfo[i].title+'</h3><p>Year: '+getInfo[i].year+'</p><p>Duration: '+getInfo[i].time+'</p><p><button id="edit" class="open-modal-btn">Edit</button><button id="delete" class="open-modal-btn">Delete</button></p></td></tr></tbody></table>'; 
-		
-
-
-		}
-		}
-}
-		let genresInfo = document.getElementById("genres-info");
-		genresInfo.innerHTML = "";
-		let stylesInfo = document.getElementById("styles-info");
-		stylesInfo.innerHTML = "";
-		let songsInfo = document.getElementById("songs-info");
-		songsInfo.innerHTML = "";
-		let artistsInfo = document.getElementById("artists-info");
-		artistsInfo.innerHTML = "";
-		
+getInfo.filter((album) => album && album.title).forEach((album) => {
+	if(album.title !== null && album.title !== undefined) {
+	info += '<table cellspacing="5" cellpadding="10" id="mytable"><tbody><tr><td><img name="cover" class="cover" src="'+album.cover+'"></img></td><td><h3>'+album.title+'</h3><p>Year: '+album.year+'</p><p>Duration: '+album.time+'</p><p><button id="edit" class="open-modal-btn">Edit</button><button id="delete" class="open-modal-btn">Delete</button></p></td></tr></tbody></table>';
+			}
+    
+})
 
 		let albumsInfo = document.getElementById("albums-info");
 		albumsInfo.innerHTML = info;
-
-
 }
-
 
 
 
 let artist = document.getElementById("artists").onclick = function() {
 	let info = "";
 
-for (let i = 0; i < getInfo.length; i++) {
-	if(getInfo[i] !== null && getInfo[i] !== undefined) {
-		if(getInfo[i].id !== undefined && getInfo[i].artist !== undefined) {
-		info += '<table cellspacing="5" cellpadding="10" id="mytable"><tbody><tr><td><img src="'+getInfo[i].url+'"></img></td><td><h3>'+getInfo[i].artist+'</h3></p></td></tr></tbody></table>'; 
-		}
-		}
-		
-}
-		let genresInfo = document.getElementById("genres-info");
-		genresInfo.innerHTML = "";
-		let stylesInfo = document.getElementById("styles-info");
-		stylesInfo.innerHTML = "";
-		let songsInfo = document.getElementById("songs-info");
-		songsInfo.innerHTML = "";
+getInfo.filter((album) => album && album.artist).forEach((album) => {
+	if(album.id !== undefined && album.artist !== null && album.artist !== undefined) {
+		info += '<table cellspacing="5" cellpadding="10" id="mytable"><tbody><tr><td><img src="'+album.url+'"></img></td><td><h3>'+album.artist+'</h3></p></td></tr></tbody></table>';
+	}
+})
+
 		let albumsInfo = document.getElementById("albums-info");
-		albumsInfo.innerHTML = "";
-
-		let artistsInfo = document.getElementById("artists-info");
-		artistsInfo.innerHTML = info;
+		albumsInfo.innerHTML = info;
 
 }
+
+
 
 let genres = document.getElementById("genres").onclick = function () {
 	let info = "";
-	
-	for (let i = 0; i < getInfo.length; i++) {
-		if(getInfo[i] !== null && getInfo[i] !== undefined) {
-					if(getInfo[i] !== null && getInfo[i].genre !== undefined) {
-			
-    info += '<table cellspacing="5" cellpadding="10" id="mytable"><tbody><tr><td>'+getInfo[i].genre+'</td></tr></tbody></table>';
+
+getInfo.filter((album) => album && album.artist).forEach((album) => {
+	if(album.id !== undefined && album.genre !== null && album.genre !== undefined) {
+    info += '<table cellspacing="5" cellpadding="10" id="mytable"><tbody><tr><td>'+album.genre+'</td></tr></tbody></table>';
 }
-				}
-			
-		}
+})
 
-
-
-		let stylesInfo = document.getElementById("styles-info");
-		stylesInfo.innerHTML = "";
-		let songsInfo = document.getElementById("songs-info");
-		songsInfo.innerHTML = "";
-		let artistsInfo = document.getElementById("artists-info");
-		artistsInfo.innerHTML = "";
 		let albumsInfo = document.getElementById("albums-info");
-		albumsInfo.innerHTML = "";
-		let genresInfo = document.getElementById("genres-info");
-
-		genresInfo.innerHTML = info;
-
+		albumsInfo.innerHTML = info;
 	}
+
+
 
 let styles = document.getElementById("styles").onclick = function () {
 		let info = "";
 
-	for (let i = 0; i < getInfo.length; i++) {
-			if(getInfo[i] !== null && getInfo[i] !== undefined) {
-		if(getInfo[i].style !== undefined) {
-			
-    info += '<table cellspacing="5" cellpadding="10" id="mytable"><tbody><tr><td>'+getInfo[i].style+'</td></tr></tbody></table>';
+getInfo.filter((album) => album && album.artist).forEach((album) => {
+	if(album.id !== undefined && album.style !== null && album.style !== undefined) {
+    info += '<table cellspacing="5" cellpadding="10" id="mytable"><tbody><tr><td>'+album.style+'</td></tr></tbody></table>';
+}
+})
 
-				}
-			}
-		}
-
-		let songsInfo = document.getElementById("songs-info");
-		songsInfo.innerHTML = "";
-		let artistsInfo = document.getElementById("artists-info");
-		artistsInfo.innerHTML = "";
 		let albumsInfo = document.getElementById("albums-info");
-		albumsInfo.innerHTML = "";
-		let genresInfo = document.getElementById("genres-info");
-		genresInfo.innerHTML = "";
-		let stylesInfo = document.getElementById("styles-info");
-
-		stylesInfo.innerHTML = info;
+		albumsInfo.innerHTML = info;
 }
 
 let songs = document.getElementById("songs").onclick = function () {
 		let info = "";
 
-for (let i = 0; i < getInfo.length; i++) {
-		if(getInfo[i] !== null && getInfo[i] !== undefined) {	
-	let a = getInfo[i];
-	console.log(a);
-
-			if(a !== null && a !== undefined) {
-				for(let j = 0; j < a.length; j++) {
-	
-	
-			
-    info += '<table cellspacing="5" cellpadding="10" id="mytable"><tbody><tr><td>'+a[j].songs+'</td></tr></tbody></table>';
-}
-}
-				}
+getInfo.filter((album) => album && album.songs).forEach((album) => {
+	if(album.songs.compositions !== null && album.songs.compositions !== undefined && album.title !== undefined) {
+	info += '<table cellspacing="5" cellpadding="10" id="mytable"><tbody><tr><td>'+album.songs.compositions+'</td><td>'+album.title+'</td></tr></tbody></table>';
 			}
-		
-		let artistsInfo = document.getElementById("artists-info");
-		artistsInfo.innerHTML = "";
+    
+})
+
 		let albumsInfo = document.getElementById("albums-info");
-		albumsInfo.innerHTML = "";
-		let genresInfo = document.getElementById("genres-info");
-		genresInfo.innerHTML = "";
-		let stylesInfo = document.getElementById("styles-info");
-		stylesInfo.innerHTML = "";
-		let songsInfo = document.getElementById("songs-info");
-
-		songsInfo.innerHTML = info;
-
+		albumsInfo.innerHTML = info;
 }
 
-
-
-
-
-   
-
-
-		
    
     $(document).on("click", "#edit", function(){
+    	
     editAlbum();
 
 }) 
 
 
-
-function editAlbum() {
-  let data = $(this).attr('data');
-$('#myModal').css('display', 'block');
-  $('form #album-cover').val();
-  $('form #album-title').val();
-  $('form #album-time').val();
-  $('form #album-year').val();
-  $('form #artist').val();
-  $('form #artist-genre').val();
-  $('form #songs').val();
-
-    $('#add-album-button').attr('data', data);
-}
-
-
- $(document).on("click", "#delete", function(){
-  
-deleteInfo();
+$(document).on("click", "#delete", function(){
+    alert("Are you really want to delete this Album?");
 
 }) 
 
-function deleteInfo() {
-  let data = $(this).attr('data');
-  delete getInfo[data];
-  localStorage.setItem('albums', JSON.stringify(getInfo));
-}
+
+
+
+
+
+
+ 
+	

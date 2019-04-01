@@ -392,6 +392,7 @@ tr {
 	cursor: pointer;
 }
 
+
 @media screen and (max-width: 600px) {
 	
 	.burger-container_hidden {
