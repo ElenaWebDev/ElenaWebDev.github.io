@@ -12,7 +12,7 @@ let modal = document.getElementById('myModal');
 let btn = document.getElementById("add-btn");
 let span = document.getElementsByClassName("close")[0];
 
-$(document).on('click touchend', '#add-button', function(event) {
+$(document).on('click touchend', '#add-btn', function(event) {
 	event.preventDefault();
 	modal.style.display = "block";
 });
