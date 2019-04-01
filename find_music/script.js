@@ -14,7 +14,7 @@ let span = document.getElementsByClassName("close")[0];
 
 //btn.onclick = function() {
 var flag = false;
-$(document).bind('touchstart click', function(){
+$thing.bind('touchstart click', function(){
   if (!flag) {
     flag = true;
     setTimeout(function(){ flag = false; }, 100);
