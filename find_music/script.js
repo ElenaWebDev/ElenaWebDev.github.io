@@ -3,17 +3,14 @@
 
 let btnAddAlbum = document.getElementById("add-album-button");
 
-let iOS = navigator.userAgent.match(/iPhone|iPad|iPod/i);
-let event = "click";
 
-if(iOS != null)
-    event = "touchstart";
 
-    $(document).on(event, ".burger-container_hidden", function(e) {
-    	let menu = document.getElementById("menu-ul");
+let click = ('ontouchstart' in document.documentElement)  ? 'touchstart' : 'mousedown';
+
+$(#burger).on(click,function(){
+    let menu = document.getElementById("menu-ul");
 		menu.classList.toggle("header-menu_navigation_visible");
-    });
-
+});
 
 btnAddAlbum.onclick = function() {
   modal.style.display = "none";
