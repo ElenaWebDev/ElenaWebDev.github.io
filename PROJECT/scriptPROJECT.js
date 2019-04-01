@@ -1,8 +1,4 @@
-const touch = document.getElementById('add-btn');
 
-touch.addEventListener('pointerdown', (event) => {
-  modal.style.display = "block";
-});
 
 let burger = document.getElementById("burger").onclick = function() {
 	let menu = document.getElementById("menu-ul");
