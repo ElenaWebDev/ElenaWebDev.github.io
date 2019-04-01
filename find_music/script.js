@@ -10,7 +10,7 @@ let click = ('ontouchstart' in document.documentElement)  ? 'touchstart' : 'mous
 $(#burger).on(click,function(){
     let menu = document.getElementById("menu-ul");
 		menu.classList.toggle("header-menu_navigation_visible");
-});
+}));
 
 btnAddAlbum.onclick = function() {
   modal.style.display = "none";
