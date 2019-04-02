@@ -1,0 +1,696 @@
+var project = [
+  {
+    "url": "http://static.jetune.fm/ai/200x200/1475.jpg",
+    "artist": "Alphaville",
+    "id": 1,
+    "genre": [
+    	"Rock"
+    ],
+    "style": [
+      "Alternative Dance",
+      "Synth Pop"
+    ],
+    "album": [
+      {
+        "url": "http://static.jetune.fm/i/200x200/177741.jpg",
+        "name": "Forever Young",
+        "time": "80:05",
+        "id": 1,
+        "year": 1984,
+        "songs": [
+          {
+            "track": 1,
+            "composition": "A Victory Of Love",
+            "time": "04:15"
+          },
+          {
+            "track": 2,            
+            "composition": "Summer In Berlin",
+            "time": "04:45"
+          },
+          {
+            "track": 3,            
+            "composition": "Big In Japan",
+            "time": "04:44"
+          },
+          {
+            "track": 4,            
+            "composition": "To Germany With Love",
+            "time": "04:15"
+          },
+          {
+            "track": 5,            
+            "composition": "Fallen Angel",
+            "time": "03:55"
+          },
+          {
+            "track": 6,            
+            "composition": "Forever Young",
+            "time": "03:45"
+          },
+          {
+            "track": 7,            
+            "composition": "In The Mood",
+            "time": "04:30"
+          },
+          {
+            "track": 8,            
+            "composition": "Sounds Like A Melody",
+            "time": "04:44"
+          },
+          {
+            "track": 9,           
+            "composition": "Lies",
+            "time": "03:33"
+          },
+          {
+            "track": 10,            
+            "composition": "The Jet Set",
+            "time": "04:57"
+          }
+        ]
+      },
+      {
+        "url": "http://static.jetune.fm/i/200x200/1787.jpg",
+        "name": "Afternoons In Utopia",
+        "time": "46:54",
+        "id": 1,
+        "year": 1986,
+        "songs": [
+          {
+            "track": 1,            
+            "composition": "IAO",
+            "time": "00:43"
+          },
+          {
+            "track": 2,           
+            "composition": "Fantastic Dream",
+            "time": "03:58"
+          },
+          {
+            "track": 3,            
+            "composition": "Jerusalem",
+            "time": "04:11"
+          },
+          {
+            "track": 4,            
+            "composition": "Dance With Me",
+            "time": "04:01"
+          },
+          {
+            "track": 5,            
+            "composition": "Afternoons In Utopia",
+            "time": "03:07"
+          },
+          {
+            "track": 6,            
+            "composition": "Sensations",
+            "time": "04:28"
+          },
+          {
+            "track": 7,            
+            "composition": "20th Century",
+            "time": "01:24"
+          },
+          {
+            "track": 8,            
+            "composition": "The Voyager",
+            "time": "04:31"
+          },
+          {
+            "track": 9,            
+            "composition": "Carol Masters",
+            "time": "04:40"
+          },
+          {
+            "track": 10,           
+            "composition": "Universal Daddy",
+            "time": "04:04"
+          },
+          {
+            "track": 11,            
+            "composition": "Lassie Come Home",
+            "time": "07:03"
+          },
+          {
+            "track": 12,            
+            "composition": "Red Rose",
+            "time": "04:10"
+          },
+          {
+            "track": 13,            
+            "composition": "Lady Bright",
+            "time": "00:40"
+          }
+        ]
+      },
+      {
+        "url": "http://static.jetune.fm/i/200x200/38376.jpg",
+        "name": "The Breathtaking Blue",
+        "time": "43:09",
+        "id": 1,
+        "year": 1989,
+        "songs": [
+          {
+            "track": 1,            
+            "composition": "Summer Rain",
+            "time": "04:11"
+          },
+          {
+            "track": 2,           
+            "composition": "Romeos",
+            "time": "05:30"
+          },
+          {
+            "track": 3,            
+            "composition": "She Fades Away",
+            "time": "04:58"
+          },
+          {
+            "track": 4,            
+            "composition": "The Mysteries Of Love",
+            "time": "04:56"
+          },
+          {
+            "track": 5,            
+            "composition": "Ariana",
+            "time": "03:43"
+          },
+          {
+            "track": 6,            
+            "composition": "Heaven Or Hell",
+            "time": "03:28"
+          },
+          {
+            "track": 7,            
+            "composition": "For A Million",
+            "time": "06:10"
+          },
+          {
+            "track": 8,            
+            "composition": "Middle Of The Riddle",
+            "time": "03:20"
+          },
+          {
+            "track": 9,            
+            "composition": "Patricia's Park",
+            "time": "04:13"
+          },
+          {
+            "track": 10,            
+            "composition": "Anyway",
+            "time": "02:50"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "url": "http://static.jetune.fm/ai/200x200/497.jpg",
+    "artist": "A-Ha",
+    "id": 2,
+    "genre": [
+    	"Rock"
+    ],
+    "style": [
+    	"New Wave",
+    	"Alternative Rock",
+    	"Synth Pop"
+    ],
+    "album": [
+      {
+        "url": "http://static.jetune.fm/i/200x200/183910.jpg",
+        "name": "Hunting High And Low",
+        "time": "193:27",
+        "id": 2,
+        "year": 1985,
+        "songs": [
+          {
+            "track": 1,           
+            "composition": "Take On Me",
+            "time": "03:48"
+          },
+          {
+            "track": 2,            
+            "composition": "Train Of Throught",
+            "time": "04:15"
+          },
+          {
+            "track": 3,            
+            "composition": "Hunting High And Low",
+            "time": "04:45"
+          },
+          {
+            "track": 4,            
+            "composition": "The Blue Sky",
+            "time": "02:37"
+          },
+          {
+            "track": 5,           
+            "composition": "Living A Boy's Adventure Tale",
+            "time": "05:02"
+          },
+          {
+            "track": 6,            
+            "composition": "The Sun Always Shines On T.V.",
+            "time": "05:09"
+          },
+          {
+            "track": 7,            
+            "composition": "And You Tell Me",
+            "time": "01:52"
+          },
+          {
+            "track": 8,            
+            "composition": "Love Is Reason",
+            "time": "03:08"
+          },
+          {
+            "track": 9,            
+            "composition": "I Dream Myself Alive",
+            "time": "03:10"
+          },
+          {
+            "track": 10,            
+            "composition": "Here I Stand And Face The Rain",
+            "time": "04:31"
+          }
+        ]
+      },
+      {
+        "url": "http://static.jetune.fm/i/200x200/183907.jpg",
+        "name": "Lifilines",
+        "time": "71:28",
+        "id": 2,
+        "year": 2002,
+        "songs": [
+          {
+            "track": 1,            
+            "composition": "Introdution",
+            "time": "00:10"
+          },
+          {
+            "track": 2,            
+            "composition": "Lifilines",
+            "time": "04:18"
+          },
+          {
+            "track": 3,            
+            "composition": "You Wanted More",
+            "time": "03:41"
+          },
+          {
+            "track": 4,            
+            "composition": "Forever Not Yours",
+            "time": "04:06"
+          },
+          {
+            "track": 5,            
+            "composition": "There's A Reason For It",
+            "time": "04:22"
+          },
+          {
+            "track": 6,            
+            "composition": "Time & Again",
+            "time": "05:04"
+          },
+          {
+            "track": 7,            
+            "composition": "Did Anyone Approach You?",
+            "time": "04:13"
+          },
+          {
+            "track": 8,            
+            "composition": "Afternoon High",
+            "time": "04:32"
+          },
+          {
+            "track": 9,            
+            "composition": "Oranges On Appletrees",
+            "time": "04:17"
+          },
+          {
+            "track": 10,            
+            "composition": "A Little Bit",
+            "time": "04:12"
+          },
+          {
+            "track": 11,            
+            "composition": "Less Than Pure",
+            "time": "04:15"
+          },
+          {
+            "track": 12,            
+            "composition": "Turn the Lights Down",
+            "time": "04:16"
+          },
+          {
+            "track": 13,           
+            "composition": "Cannot Hide",
+            "time": "03:18"
+          },
+          {
+            "track": 14,            
+            "composition": "White Canvas",
+            "time": "03:30"
+          },
+          {
+            "track": 15,            
+            "composition": "Dragonfly",
+            "time": "03:21"
+          },
+          {
+            "track": 16,            
+            "composition": "Solace",
+            "time": "04:22"
+          },
+          {
+            "track": 17,            
+            "composition": "Minor Earth-Major Sky (ATB mix)",
+            "time": "05:48"
+          },
+          {
+            "track": 18,            
+            "composition": "Velvet (De-PHAZZ mix)",
+            "time": "03:47"
+          }
+        ]
+      },
+      {
+        "url": "http://static.jetune.fm/i/200x200/253483.jpg",
+        "name": "Cast In Steel (Deluxe Edition)",
+        "time": "113:20",
+        "id": 2,
+        "year": 2015,
+        "songs": [
+          {
+            "track": 1,            
+            "composition": "Cast In Steel",
+            "time": "03:52"
+          },
+          {
+            "track": 2,            
+            "composition": "Under The Makeup",
+            "time": "03:25"
+          },
+          {
+            "track": 3,            
+            "composition": "The Wake",
+            "time": "03:45"
+          },
+          {
+            "track": 4,            
+            "composition": "Forest Fire",
+            "time": "03:56"
+          },
+          {
+            "track": 5,            
+            "composition": "Objects In The Mirror",
+            "time": "04:15"
+          },
+          {
+            "track": 6,            
+            "composition": "Door Ajar",
+            "time": "03:46"
+          },
+          {
+            "track": 7,            
+            "composition": "Living At The End Of The World",
+            "time": "04:06"
+          },
+          {
+            "track": 8,            
+            "composition": "Mythomania",
+            "time": "03:50"
+          },
+          {
+            "track": 9,            
+            "composition": "She's Humming A True",
+            "time": "04:02"
+          },
+          {
+            "track": 10,            
+            "composition": "Shadow Endeavors",
+            "time": "04:22"
+          },
+          {
+            "track": 11,            
+            "composition": "Giving Up The Ghost",
+            "time": "04:16"
+          },
+          {
+            "track": 12,            
+            "composition": "Goodbye Thompson",
+            "time": "03:36"
+          },
+          {
+            "track": 13,            
+            "composition": "The End Of The Affair",
+            "time": "03:32"
+          },
+          {
+            "track": 14,           
+            "composition": "Mother Nature Goes To Heaven",
+            "time": "04:34"
+          },
+          {
+            "track": 15,            
+            "composition": "Nothing Is Keeping You Here",
+            "time": "04:44"
+          },
+          {
+            "track": 16,            
+            "composition": "Shadowside (Demo Version)",
+            "time": "04:17"
+          },
+          {
+            "track": 17,            
+            "composition": "Start The Simulator (Sterephonic Mix)",
+            "time": "05:19"
+          },
+          {
+            "track": 18,            
+            "composition": "Foot Of The Mountain (Mark Saunders Remix)",
+            "time": "04:19"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "url": "http://static.jetune.fm/ai/200x200/9477.jpg",
+    "artist": "Dick Hyman",
+    "id": 3,
+    "genre": [
+    	"Vocal Music",
+    	"Jazz",
+    	"Light Music",
+    	"Soundtrack"
+    ],
+    "style": [
+    	"Vocal/Standarts",
+    	"Big Band/Swing",
+    	"New Orlean/Classical Jazz",
+    	"Exotic/Lounge"
+    ],
+    "album": [
+      {
+        "url": "http://static.jetune.fm/i/200x200/192275.jpg",
+        "name": "The Age Of Electronicus",
+        "time": "37:30",
+        "id": 3,
+        "year": 1969,
+        "songs": [
+          {
+            "track": 1,            
+            "composition": "Ob-La-Di, Ob-La-Da",
+            "time": "02:46"
+          },
+          {
+            "track": 2,            
+            "composition": "Give It Up Or Turn It Loose",
+            "time": "03:15"
+          },
+          {
+            "track": 3,            
+            "composition": "Blackbird",
+            "time": "03:14"
+          },
+          {
+            "track": 4,            
+            "composition": "Aquarius",
+            "time": "02:50"
+          },
+          {
+            "track": 5,            
+            "composition": "Green Onions",
+            "time": "07:55"
+          },
+          {
+            "track": 6,            
+            "composition": "Kolumbo",
+            "time": "07:44"
+          },
+          {
+            "track": 7,            
+            "composition": "Time Is Tight",
+            "time": "03:09"
+          },
+          {
+            "track": 8,            
+            "composition": "Alife",
+            "time": "03:40"
+          },
+          {
+            "track": 9,            
+            "composition": "Both Sides Now",
+            "time": "03:01"
+          }
+        ]
+      },
+      {
+        "url": "http://static.jetune.fm/i/200x200/192276.jpg",
+        "name": "Plays Fats Waller",
+        "time": "59:11",
+        "id": 3,
+        "year": 1989,
+        "songs": [
+          {
+            "track": 1,            
+            "composition": "Bach Up to Me",
+            "time": "02:37"
+          },
+          {
+            "track": 2,            
+            "composition": "Ain't Misbehavin'",
+            "time": "05:54"
+          },
+          {
+            "track": 3,            
+            "composition": "Keepin' Out of Mischief Now",
+            "time": "03:52"
+          },
+          {
+            "track": 4,            
+            "composition": "African Ripples",
+            "time": "03:43"
+          },
+          {
+            "track": 5,            
+            "composition": "Honeysuckle Rose",
+            "time": "07:00"
+          },
+          {
+            "track": 6,            
+            "composition": "Viper's Drag",
+            "time": "02:58"
+          },
+          {
+            "track": 7,            
+            "composition": "Willow Tree",
+            "time": "03:59"
+          },
+          {
+            "track": 8,            
+            "composition": "I'm Going to See My Ma",
+            "time": "02:54"
+          },
+          {
+            "track": 9,            
+            "composition": "Stealin' Apples",
+            "time": "02:28"
+          },
+          {
+            "track": 10,            
+            "composition": "I've Got a Feeling I'm Falling",
+            "time": "03:47"
+          },
+          {
+            "track": 11,            
+            "composition": "Handful of Keys",
+            "time": "02:37"
+          },
+          {
+            "track": 12,            
+            "composition": "My Fate Is in Your Hands",
+            "time": "06:09"
+          },
+          {
+            "track": 13,            
+            "composition": "Jitterbug Waltz",
+            "time": "02:44"
+          },
+          {
+            "track": 14,            
+            "composition": "Sweet Savannah Sue",
+            "time": "02:22"
+          },
+          {
+            "track": 15,            
+            "composition": "Squeeze Me",
+            "time": "06:15"
+          }
+        ]
+      },
+      {
+        "url": "http://static.jetune.fm/i/200x200/253761.jpg",
+        "name": "House Of Pianos",
+        "time": "193:02",
+        "id": 3,
+        "year": 2015,
+        "songs": [
+          {
+            "track": 1,            
+            "composition": "Send In The Clowns",
+            "time": "07:30"
+          },
+          {
+            "track": 2,            
+            "composition": "Sweet Georgia Brown",
+            "time": "05:59"
+          },
+          {
+            "track": 3,            
+            "composition": "Yesterdays",
+            "time": "10:14"
+          },
+          {
+            "track": 4,            
+            "composition": "Blue Monk",
+            "time": "04:09"
+          },
+          {
+            "track": 5,            
+            "composition": "Ugly Beauty",
+            "time": "04:14"
+          },
+          {
+            "track": 6,            
+            "composition": "Beat The Clock Theme",
+            "time": "01:56"
+          },
+          {
+            "track": 7,            
+            "composition": "All The Things You Are",
+            "time": "11:04"
+          },
+          {
+            "track": 8,            
+            "composition": "Theme From The Purple Rose Of Cairo",
+            "time": "02:09"
+          },
+          {
+            "track": 9,            
+            "composition": "Misterioso",
+            "time": "04:48"
+          },
+          {
+            "track": 10,            
+            "composition": "Take The A Train",
+            "time": "06:16"
+          }
+        ]
+      }
+    ]
+  }
+]

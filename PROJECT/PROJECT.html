@@ -5,6 +5,7 @@
 	<link rel="stylesheet" type="text/css" href="style.css">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
 	<script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+<script src="http://code.jquery.com/mobile/1.3.1/jquery.mobile-1.3.1.min.js"></script>
 		<script src="scriptPROJECT.js" async=""></script>
 
 	<title>Find Music</title>
@@ -13,7 +14,7 @@
 	<div class="content-container">
 
 		<div class="header-container">
-			<div class="logo-container"><img class="logo" src="https://www.misskatecuttables.com/uploads/shopping_cart/7185/large_thesoundofmusic.png" alt="logo"></img>Find Music
+			<div class="logo-container"><img class="logo" src="https://www.misskatecuttables.com/uploads/shopping_cart/7185/large_thesoundofmusic.png" alt="logo">Find Music
 			</div>
 			<div class="burger-container_hidden" id="burger">
 			<div class="bar1"></div>
@@ -26,13 +27,13 @@
                             <li class="header-menu_navigation_between"><a class="header-menu_navigation_links" href="#" id="albums">Albums</a></li>
                             <li class="header-menu_navigation_between"><a class="header-menu_navigation_links" href="#" id="genres">Genres</a></li>
                             <li class="header-menu_navigation_between"><a class="header-menu_navigation_links" href="#" id="styles">Styles</a></li>
-                            <li class="header-menu_navigation_between"><a class="header-menu_navigation_links" href="#" id="songs">Songs</a></li>
+                            <li class="header-menu_navigation_between"><a class="header-menu_navigation_links" href="#" id="songs-view">Songs</a></li>
                         </ul>
 			</div>	
 		</div>
 		<div class="search-container">
 		<div class="form-group">
-    <input type="text" class="form-control pull-right" class="form-control-view" id="search" placeholder="Поиск по результатам">
+    <input type="text" class="form-control pull-right form-control-view" id="search" placeholder="Поиск по результатам">
 </div>
 </div>
 		<div class="main-container">
@@ -47,7 +48,7 @@
 						<div class="modal-body">
 							<form id='form' data-form class="form" name="form">
 								<label for="artist-cover">Artist's picture URL:
-								<input type="text" name="artist-cover" id= "artist-cover" class="add-form" placeholder="Artist's picture URL" value="">
+								<input type="url" name="artist-cover" id= "artist-cover" class="add-form" placeholder="Artist's picture URL" value="">
 							</label>
 								<label for="artist">Artist:
 								<input type="text" name="artist" id= "artist" class="add-form" placeholder="Artist's name" value="" required="">
@@ -59,7 +60,7 @@
 								<input type="text" name="artist-style" id= "artist-style" class="add-form" placeholder="Enter the style" value=""> 
 							</label>
                   <label for="album-cover">URL:
-								<input type="text" name="album-cover" id= "album-cover" class="add-form" placeholder="Picture's URL" value="" required="">
+								<input type="url" name="album-cover" id= "album-cover" class="add-form" placeholder="Picture's URL" value="" required="">
 							</label>
                   <label for="album-title">Album:
 								<input type="text" name="album-title" id= "album-title" class="add-form" placeholder="Album's name" value="" required="">
@@ -68,37 +69,34 @@
 								<input type="text" name="album-time" id= "album-time" class="add-form" placeholder="Enter the duration of the album" value="">
 							</label>
                   <label for="album-year">Year:
-								<input type="text" name="album-year" id= "album-year" class="add-form" placeholder="Enter the year of edition" value="">
+								<input type="text" name="album-year" id= "album-year" class="add-form" placeholder="Enter the year of edition" value="" minlength="4" maxlength="4">
 							</label>
                   
 
 								<p>Add Songs:</p>
 								
 
-								<input type="text" name="songs" id= "songs" class="add-form" placeholder="Enter the song" value="" data-text><span id="clone">Add Song</span>
+								<input type="text" name="songs" id="songs" class="add-form" placeholder="Enter the song" value="" data-text><span id="clone">Add Song</span>
 								
 							</div>
 							<div class="modal-footer">
-							<input type="submit" value='Submit' id="add-album-button" class="add-in-form-yes" onclick="checkForm(this.form)";return false">
+							<input type="submit" value='Submit' id="add-album-button" class="add-in-form-yes" onsubmit="">
 							<input type="button" value='Cancel' id="cancel-album-button" class="add-in-form-no">
 		
-
 					</div>
-						</form>
-						</div>
 						
+						</div>
+						</form>
 				</div>
 			</div>
 			<div class="center-content" id="center-content">
-				<div class="center-content_info" class="albums-info" id="albums-info"></div>
+				<div class="center-content_info albums-info" id="albums-info"></div>
 			</div>
 			<div class="right-content">
 			</div>
 		</div>
-
 		<div class="footer-container" id="footer-container">
 		</div>
 	</div>
-
 </body>
 </html>
