@@ -1,6 +1,6 @@
 /* проверка наличия localStorage */
 
-if (localStorage.getItem("project") === null) { localStorage.setItem("project", JSON.stringify([])) } else { console.log("It was created")};
+if (localStorage.getItem("project") === null) { localStorage.setItem("project", JSON.stringify(project)) } else { console.log("It was created")};
 
 /* проверка закончена */
 
