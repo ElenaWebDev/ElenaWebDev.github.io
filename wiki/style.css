@@ -1,0 +1,148 @@
+#searchTerm {
+  width: 90%;
+}
+
+#news {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  -ms-flex-flow: row nowrap;
+  flex-flow: row nowrap;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  width: 70%;
+  max-width: 70%;
+  margin-left: 20px;
+  margin-right: 20px;
+}
+
+#main {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  -ms-flex-flow: row nowrap;
+  flex-flow: row nowrap;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+}
+
+#output {
+  margin-right: 10px;
+  margin-top: 70px;
+  width: 80%;
+  max-width: 80%;
+  position: relative;
+}
+
+img {
+  width: 60%;
+  max-width: 60%;
+  height: auto;
+}
+
+p {
+  color: black;
+}
+
+.favList {
+  margin-left: 5px;
+  margin-right: 5px;
+}
+
+#choice {
+  width: 200px;
+  max-width: 200px;
+  margin-top: 10px;
+  position: absolute;
+  left: 20px;
+}
+
+#popular {
+  margin-top: 30px;
+  font-size: 10px;
+  width: 200px;
+  max-width: 200px;
+  position: absolute;
+  right: 20px;
+}
+
+.bestView {
+  height: 50px;
+}
+
+#clear {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+#clearFav:hover,
+#clearLast:hover {
+  color: red;
+}
+
+.button:hover {
+  color: green;
+}
+
+.myFav {
+  position: absolute;
+  right: 100px;
+  font-weight: bold;
+}
+
+.googleResult {
+  font-weight: bold;
+  margin-top: 30px;
+}
+
+@media screen and (max-width: 600px) {
+  #news {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -ms-flex-flow: row wrap;
+    flex-flow: row wrap;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    width: 80%;
+    max-width: 80%;
+  }
+  #output {
+    margin-top: 80px;
+    width: 60%;
+    max-width: 60%;
+    font-size: 10px;
+    margin-left: 45px;
+  }
+  #popular {
+    margin-top: 30px;
+    font-size: 10px;
+    width: 20%;
+    max-width: 20%;
+    position: absolute;
+    right: 10px;
+  }
+  .myFav {
+    right: 50px;
+    font-size: 12px;
+  }
+  .googleResult {
+  margin-top: 20px;
+  font-size: 12px;
+}
+  #google {
+    margin-top: 30px;
+    font-size: 10px;
+    width: 60%;
+    max-width: 60%;
+  }
+}
