@@ -251,12 +251,12 @@ $(document).on('click', '.mytable', function() {
 })
 
 function deleteObj(albumId) {
-      	$.each(returnObj, function(index, obj) {
-      		if (obj.id == albumId) {
-	  		returnObj.splice(index, 1);
-	  		return false;
-	  	}
-	  });
+        $.each(returnObj, function(index, obj) {
+          if (obj.id == albumId) {
+        returnObj.splice(index, 1);
+        return false;
+      }
+    });
       
   
 
@@ -267,8 +267,8 @@ function deleteObj(albumId) {
 
 $(document).on('click', '.delete', function() {
 
-	let albumId = this.id.substr('delete'.length)
-	console.log(albumId)
+  let albumId = this.id.substr('delete'.length)
+  console.log(albumId)
 
   deleteObj(albumId);
 
@@ -278,8 +278,8 @@ $(document).on('click', '.delete', function() {
 
 $(document).on('click', '.edit', function() {
 
-	let albumId = this.id.substr('edit'.length)
-	console.log(albumId)
+  let albumId = this.id.substr('edit'.length)
+  console.log(albumId)
 
   $(".right-content").html("");
   showAlbumForm();
