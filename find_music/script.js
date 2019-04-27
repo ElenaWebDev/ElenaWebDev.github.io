@@ -13,39 +13,34 @@ let burger = document.getElementById("burger").onclick = function() {
   menu.classList.toggle("header-menu_navigation_visible");
 }
 
-let modal = document.getElementById('myModal');
-let btn = document.getElementById("add-btn");
+let albumForm = document.getElementById('myModal');
+let addAlbumButton = document.getElementById("add-btn");
 
-let modalEdit = document.getElementById('myModalEdit');
-let btnEdit = document.getElementById("add-btn");
+let cancelAlbumButton = document.getElementById("cancel-album-button");
 
-let btnCancel = document.getElementById("cancel-album-button");
-let btnCancelEdit = document.getElementById("cancel-album-button-edit");
+addAlbumButton.onclick = function(){
+  idEdit = -1;
+  showAlbumForm();
+};
 
-btn.onclick = function() {
-  modal.style.display = "block";
-}
-
-$("#close").on('click', function() {
-  modal.style.display = "none";
-});
-
-$("#closeEdit").on('click', function() {
-  modalEdit.style.display = "none";
-});
+$("#close").on('click', hideAlbumForm);
+cancelAlbumButton.onclick = hideAlbumForm;
 
 window.onclick = function(event) {
-  if (event.target == modal) {
-    modal.style.display = "none";
+  if (event.target == albumForm) {
+    hideAlbumForm();
   }
 }
 
-btnCancel.onclick = function() {
-  modal.style.display = "none";
+function showAlbumForm(){
+  $('#form input[name="songs[]"]').remove();
+  $('.form').find('input:text').val('');
+  $('#add-album-button').val('Add');
+  albumForm.style.display = "block"; 
 }
 
-btnCancelEdit.onclick = function() {
-  modalEdit.style.display = "none";
+function hideAlbumForm(){
+  albumForm.style.display = "none"; 
 }
 
 function random() {
@@ -61,7 +56,7 @@ function funсonload() {
     for (let i = 0; i < returnObj.length; i++) {
       let infoData = returnObj[i].album;
       for (let j = 0; j < infoData.length; j++) {
-        info += '<table cellspacing="5" cellpadding="10" id="mytable' + infoData[j].id + '" class="mytable" data-id="' + infoData[j].id + '"><tbody><tr><td><img src="' + infoData[j].url + '"></img></td><td>' + infoData[j].name + '<p class="add-info"><big>Duration: </big> ' + infoData[j].time + '</p><p class="add-info"><big>Year: </big>' + infoData[j].year + '</p><p><button id="edit"' + i + '" class="open-modal-btn edit">Edit</button><button id="delete' + i + '" class="open-modal-btn delete">Delete</button></p></td></tr></tbody></table>';
+        info += '<table cellspacing="5" cellpadding="10" id="mytable' + infoData[j].id + '" class="mytable" data-id="' + infoData[j].id + '"><tbody><tr><td><img src="' + infoData[j].url + '"></img></td><td>' + infoData[j].name + '<p class="add-info"><big>Duration: </big> ' + infoData[j].time + '</p><p class="add-info"><big>Year: </big>' + infoData[j].year + '</p><p><button id="edit' + infoData[j].id + '" class="open-modal-btn edit">Edit</button><button id="delete' + infoData[j].id + '" class="open-modal-btn delete">Delete</button></p></td></tr></tbody></table>';
 
       }
 
@@ -191,16 +186,12 @@ function clone() {
   form.appendChild(cloneButton);
 };
 
-$('#add-album-button').bind('touchstart click', function() {
-
-  let idAlbum = Math.floor(Math.random() * 100000);
-
+function addOrEditAlbum() {
   let newObject = new Object();
 
   newObject.url = $('form input[name="artist-cover"]').val();
 
   newObject.artist = $('form input[name="artist"]').val();
-  newObject.id = idAlbum;
   newObject.genre = [$('form input[name="artist-genre"]').val()];
   newObject.style = [$('form input[name="artist-style"]').val()];
 
@@ -208,22 +199,33 @@ $('#add-album-button').bind('touchstart click', function() {
     "url": $('form input[name="album-cover"]').val(),
     "name": $('form input[name="album-title"]').val(),
     "time": $('form input[name="album-time"]').val(),
-    "id": idAlbum,
     "year": $('form input[name="album-year"]').val(),
-    "songs": $('input[name="songs[]"]').map(function() {
+    "songs": $('input[name="songs[]"]').map(function () {
       return this.value
     }).get()
   }];
 
   let getObject = JSON.parse(localStorage.getItem('project'));
-  getObject.push(newObject);
+
+  if (idEdit > 0) {
+    newObject.id = idEdit;
+
+    getObject = getObject.map(album => album.id == idEdit ? newObject : album);
+  }
+  else {
+    newObject.id = Math.floor(Math.random() * 100000);
+
+    getObject.push(newObject);
+  }
+
+  newObject.album[0].id = newObject.id,
 
   localStorage.setItem('project', JSON.stringify(getObject));
 
-  modal.style.display = "none";
+  hideAlbumForm();
+}
 
-});
-
+$('#add-album-button').bind('touchstart click', addOrEditAlbum);
 
 let returnObj = JSON.parse(window.localStorage.getItem('project'));
 
@@ -248,55 +250,9 @@ $(document).on('click', '.mytable', function() {
   })
 })
 
-
-
-function editObj() {
-let idEdit;
-  $(document).on('click', '.mytable', function(e) {
-    var target = $(e.target);
-    if (!(target.is($('.edit'))) && !(target.is($('.delete')))) {
-      return false;
-    } else {
-    	$(".right-content").html("");
-    	modalEdit.style.display = "block";
-      	let album = $(this).attr("data-id");
-      	let id = document.getElementById(this.id);
-      	$.each(returnObj, function(index, obj) {
-      		if (album == obj.id) {
-            idEdit = this.id;
-            console.log(idEdit)
-        	let songsInput = $('#formEdit input[name="songs[]"]');
-        	songsInput.remove();
-
-        	$('#formEdit input[name="artist-cover"]').val(this.url);
-          	$('#formEdit input[name="artist"]').val(this.artist);
-          	$('#formEdit input[name="artist-genre"]').val(this.genre);
-          	$('#formEdit input[name="artist-style"]').val(this.style);
-          	$('#formEdit input[name="album-cover"]').val(this.album['0'].url);
-            $('#formEdit input[name="album-title"]').val(this.album['0'].name);
-            $('#formEdit input[name="album-time"]').val(this.album['0'].time);
-            $('#formEdit input[name="album-year"]').val(this.album['0'].year);
-
-
-
-            for(let i = 0; i < this.album['0'].songs.length; i++) {
-            	let cloneButton = input.cloneNode(true);
-            	$('#formEdit').append(cloneButton)
-            	$(cloneButton).val(this.album['0'].songs[i]);
-            }
-        }
-      })
-    }
-  })
-
-}
-
-editObj()
-
-
 function deleteObj(albumId) {
       	$.each(returnObj, function(index, obj) {
-      		if (obj.id) {
+      		if (obj.id == albumId) {
 	  		returnObj.splice(index, 1);
 	  		return false;
 	  	}
@@ -309,44 +265,6 @@ function deleteObj(albumId) {
 
 }
 
-
-
-
-$(document).on('click', '#add-album-button-edit', function() {
-
-  
-
-  let newObject = new Object();
-
-  newObject.url = $('#formEdit input[name="artist-cover"]').val();
-  newObject.artist = $('#formEdit input[name="artist"]').val();
-  newObject.id = idEdit;
-  newObject.genre = [$('#formEdit input[name="artist-genre"]').val()];
-  newObject.style = [$('#formEdit input[name="artist-style"]').val()];
-  
-  newObject.album = [{
-    "url": $('#formEdit input[name="album-cover"]').val(),
-    "name": $('#formEdit input[name="album-title"]').val(),
-    "time": $('#formEdit input[name="album-time"]').val(),
-    "id": idEdit,
-    "year": $('#formEdit input[name="album-year"]').val(),
-    "songs": $('#formEdit input[name="songs[]"]').map(function() {
-      return this.value
-    }).get()
-  }];
-
-  let bestObject = JSON.parse(localStorage.getItem('project'));
-  bestObject.push(newObject);
-  console.log(bestObject);
-
-  localStorage.setItem('project', JSON.stringify(bestObject));
-  localStorage.getItem('project');
-
-  funсonload();
-
-})
-
-
 $(document).on('click', '.delete', function() {
 
 	let albumId = this.id.substr('delete'.length)
@@ -356,4 +274,39 @@ $(document).on('click', '.delete', function() {
 
   funсonload();
 
+})
+
+$(document).on('click', '.edit', function() {
+
+	let albumId = this.id.substr('edit'.length)
+	console.log(albumId)
+
+  $(".right-content").html("");
+  showAlbumForm();
+
+  $.each(returnObj, function(index, obj) {
+      if (albumId == obj.id) {
+        idEdit = this.id;
+        console.log(idEdit)
+        let songsInput = $('#form input[name="songs[]"]');
+        songsInput.remove();
+          
+          $('#form input[name="artist-cover"]').val(obj.url);
+          $('#form input[name="artist"]').val(obj.artist);
+          $('#form input[name="artist-genre"]').val(obj.genre);
+          $('#form input[name="artist-style"]').val(obj.style);
+          $('#form input[name="album-cover"]').val( obj.album['0'].url);
+          $('#form input[name="album-title"]').val(obj.album['0'].name);
+          $('#form input[name="album-time"]').val(obj.album['0'].time);
+          $('#form input[name="album-year"]').val(obj.album['0'].year);
+          $('#add-album-button').val('Update');
+
+          for(let i = 0; i < obj.album['0'].songs.length; i++) {
+            let cloneButton = input.cloneNode(true);
+            $('#form').append(cloneButton)
+            $(cloneButton).val(obj.album['0'].songs[i]);
+          }
+    }
+  })
+  
 })
