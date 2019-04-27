@@ -5,14 +5,8 @@ if (localStorage.getItem("project") === null) {
 } else {
   console.log("It was created")
 };
-if (localStorage.getItem("BASE") === null) {
-  localStorage.setItem("BASE", JSON.stringify(project))
-} else {
-  console.log("It was created")
-};
 
 /* проверка закончена */
-
 
 let burger = document.getElementById("burger").onclick = function() {
   let menu = document.getElementById("menu-ul");
@@ -67,7 +61,7 @@ function funсonload() {
     for (let i = 0; i < returnObj.length; i++) {
       let infoData = returnObj[i].album;
       for (let j = 0; j < infoData.length; j++) {
-        info += '<table cellspacing="5" cellpadding="10" id="mytable' + infoData[j].id + '" class="mytable" data-id="' + infoData[j].id + '"><tbody><tr><td><img src="' + infoData[j].url + '"></img></td><td>' + infoData[j].name + '<p class="add-info"><big>Duration: </big> ' + infoData[j].time + '</p><p class="add-info"><big>Year: </big>' + infoData[j].year + '</p><p><button id="edit"'+i+'" class="open-modal-btn edit">Edit</button><button id="delete'+i+'" class="open-modal-btn delete">Delete</button></p></td></tr></tbody></table>';
+        info += '<table cellspacing="5" cellpadding="10" id="mytable' + infoData[j].id + '" class="mytable" data-id="' + infoData[j].id + '"><tbody><tr><td><img src="' + infoData[j].url + '"></img></td><td>' + infoData[j].name + '<p class="add-info"><big>Duration: </big> ' + infoData[j].time + '</p><p class="add-info"><big>Year: </big>' + infoData[j].year + '</p><p><button id="edit"' + i + '" class="open-modal-btn edit">Edit</button><button id="delete' + i + '" class="open-modal-btn delete">Delete</button></p></td></tr></tbody></table>';
 
       }
 
@@ -122,7 +116,6 @@ let genres = document.getElementById("genres").onclick = function() {
   }
 
 
-
   let albumsInfo = document.getElementById("albums-info");
   albumsInfo.innerHTML = info;
 
@@ -147,6 +140,7 @@ let styles = document.getElementById("styles").onclick = function() {
 
   let albumsInfo = document.getElementById("albums-info");
   albumsInfo.innerHTML = info;
+
 }
 
 /* Create songs list */
@@ -254,52 +248,82 @@ $(document).on('click', '.mytable', function() {
   })
 })
 
-let idEdit;
+
 
 function editObj() {
-$(document).on('click', '.mytable', function(e) {
-	  var target = $(e.target);
-  if (!(target.is($('.edit')))) {
-    return false;
-  } else {
-modalEdit.style.display = "block";
-let album = $(this).attr("data-id");
-let id = document.getElementById(this.id);
-  $.each(returnObj, function(index, obj) {
-    if (album == obj.id) {
+let idEdit;
+  $(document).on('click', '.mytable', function(e) {
+    var target = $(e.target);
+    if (!(target.is($('.edit'))) && !(target.is($('.delete')))) {
+      return false;
+    } else {
+    	$(".right-content").html("");
+    	modalEdit.style.display = "block";
+      	let album = $(this).attr("data-id");
+      	let id = document.getElementById(this.id);
+      	$.each(returnObj, function(index, obj) {
+      		if (album == obj.id) {
+            idEdit = this.id;
+            console.log(idEdit)
+        	let songsInput = $('#formEdit input[name="songs[]"]');
+        	songsInput.remove();
 
-$('#formEdit input[name="artist-cover"]').val(this.url);
-$('#formEdit input[name="artist"]').val(this.artist);
-$('#formEdit input[name="artist-genre"]').val(this.genre);
-$('#formEdit input[name="artist-style"]').val(this.style);
-$('#formEdit input[name="album-cover"]').val(this.album['0'].url),
-$('#formEdit input[name="album-title"]').val(this.album['0'].name),
-$('#formEdit input[name="album-time"]').val(this.album['0'].time),
-$('#formEdit input[name="album-year"]').val(this.album['0'].year),
-$('#formEdit input[name="songs[]"]').val(this.album['0'].songs);
+        	$('#formEdit input[name="artist-cover"]').val(this.url);
+          	$('#formEdit input[name="artist"]').val(this.artist);
+          	$('#formEdit input[name="artist-genre"]').val(this.genre);
+          	$('#formEdit input[name="artist-style"]').val(this.style);
+          	$('#formEdit input[name="album-cover"]').val(this.album['0'].url);
+            $('#formEdit input[name="album-title"]').val(this.album['0'].name);
+            $('#formEdit input[name="album-time"]').val(this.album['0'].time);
+            $('#formEdit input[name="album-year"]').val(this.album['0'].year);
 
-idEdit = this.id;
+
+
+            for(let i = 0; i < this.album['0'].songs.length; i++) {
+            	let cloneButton = input.cloneNode(true);
+            	$('#formEdit').append(cloneButton)
+            	$(cloneButton).val(this.album['0'].songs[i]);
+            }
+        }
+      })
+    }
+  })
 
 }
-})
-}
-})
-}
+
 editObj()
+
+
+function deleteObj() {
+      	$.each(returnObj, function(index, obj) {
+      		if (obj.id) {
+	  		returnObj.splice(index, 1);
+	  		return false;
+	  	}
+	  });
+      
+  
+
+  localStorage.setItem('project', JSON.stringify(returnObj));
+  localStorage.getItem('project');
+
+}
+
 
 
 
 $(document).on('click', '#add-album-button-edit', function() {
 
+  
+
   let newObject = new Object();
 
   newObject.url = $('#formEdit input[name="artist-cover"]').val();
-
   newObject.artist = $('#formEdit input[name="artist"]').val();
   newObject.id = idEdit;
   newObject.genre = [$('#formEdit input[name="artist-genre"]').val()];
   newObject.style = [$('#formEdit input[name="artist-style"]').val()];
-
+  
   newObject.album = [{
     "url": $('#formEdit input[name="album-cover"]').val(),
     "name": $('#formEdit input[name="album-title"]').val(),
@@ -311,13 +335,22 @@ $(document).on('click', '#add-album-button-edit', function() {
     }).get()
   }];
 
+  let bestObject = JSON.parse(localStorage.getItem('project'));
+  bestObject.push(newObject);
+  console.log(bestObject);
 
-let bestObject = JSON.parse(localStorage.getItem('project'));
-    bestObject.push(newObject);
-    console.log(bestObject);
+  localStorage.setItem('project', JSON.stringify(bestObject));
+  localStorage.getItem('project');
 
-    localStorage.setItem('project', JSON.stringify(bestObject));
-    localStorage.getItem('project');
+  funсonload();
 
+})
+
+
+$(document).on('click', '.delete', function() {
+
+  deleteObj();
+
+  funсonload();
 
 })

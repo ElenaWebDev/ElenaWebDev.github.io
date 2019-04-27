@@ -339,6 +339,9 @@ img {
   width: 100px;
   max-width: 100px;
   height: auto;
+}
+
+img:hover {
   cursor: pointer;
 }
 
@@ -392,6 +395,7 @@ tr {
 .edit:hover,
 .delete:hover {
   cursor: pointer;
+  color: red;
 }
 
 .mytable:hover {
