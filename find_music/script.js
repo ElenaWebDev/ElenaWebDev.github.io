@@ -294,7 +294,7 @@ let idEdit;
 editObj()
 
 
-function deleteObj() {
+function deleteObj(albumId) {
       	$.each(returnObj, function(index, obj) {
       		if (obj.id) {
 	  		returnObj.splice(index, 1);
@@ -349,7 +349,10 @@ $(document).on('click', '#add-album-button-edit', function() {
 
 $(document).on('click', '.delete', function() {
 
-  deleteObj();
+	let albumId = this.id.substr('delete'.length)
+	console.log(albumId)
+
+  deleteObj(albumId);
 
   funсonload();
 
