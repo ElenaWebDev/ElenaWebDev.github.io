@@ -61,7 +61,7 @@ function funсonload() {
     for (let i = 0; i < returnObj.length; i++) {
       let infoData = returnObj[i].album;
       for (let j = 0; j < infoData.length; j++) {
-        info += '<table cellspacing="5" cellpadding="10" id="mytable' + infoData[j].id + '" class="mytable" data-id="' + infoData[j].id + '"><tbody><tr><td><img src="' + infoData[j].url + '"></img></td><td>' + infoData[j].name + '<p class="add-info"><big>Duration: </big> ' + infoData[j].time + '</p><p class="add-info"><big>Year: </big>' + infoData[j].year + '</p><p><button id="edit"' + i + '" class="open-modal-btn edit">Edit</button><button id="delete' + i + '" class="open-modal-btn delete">Delete</button></p></td></tr></tbody></table>';
+        info += '<table cellspacing="5" cellpadding="10" id="mytable' + infoData[j].id + '" class="mytable" data-id="' + infoData[j].id + '"><tbody><tr><td><img src="' + infoData[j].url + '"></img></td><td>' + infoData[j].name + '<p class="add-info"><big>Duration: </big> ' + infoData[j].time + '</p><p class="add-info"><big>Year: </big>' + infoData[j].year + '</p><p><button id="edit"' + infoData[j].id + '" class="open-modal-btn edit">Edit</button><button id="delete' + infoData[j].id + '" class="open-modal-btn delete">Delete</button></p></td></tr></tbody></table>';
 
       }
 
@@ -296,7 +296,7 @@ editObj()
 
 function deleteObj(albumId) {
       	$.each(returnObj, function(index, obj) {
-      		if (obj.id) {
+      		if (obj.id == albumId) {
 	  		returnObj.splice(index, 1);
 	  		return false;
 	  	}
