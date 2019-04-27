@@ -27,7 +27,7 @@ function wiki() {
         console.log(data);
         for (let i = 0; i <= 5; i++) { //data[1].length
             if(data[1][i] !== undefined) {
-          $('#output').prepend('<div id="wiki' + i + '" class="view">Wiki<div class="well"><a href=' + data[3][i] + '><h4>' + data[1][i] + '</h4><p>' + data[2][i] + '</p></a><button id="add' + i + '" class="button">Add to Favorite</button></div></div>');
+          $('#output').prepend('<div id="wiki' + i + '" class="view">Wiki<div class="well"><a href="' + data[3][i] + '"><h4>' + data[1][i] + '</h4><p>' + data[2][i] + '</p></a><button id="add' + i + '" class="button">Add to Favorite</button></div></div>');
         }
        }
       },
@@ -46,20 +46,24 @@ function wiki() {
     })
 }
 
-
+  let today = new Date();
+  let dd = String(today.getDate()).padStart(2, '0');
+  let dd1 = String(today.getDate() - 1).padStart(2, '0');
+  let mm = String(today.getMonth() + 1).padStart(2, '0');
+  let yyyy = today.getFullYear();
 
 function newsSearch() {
   $('#output').html('');
   let searchTerm = $('#searchTerm').val();
   $.ajax({
-      url: "https://newsapi.org/v2/everything?q=" + searchTerm + "&from=2019-04-18&sortBy=popularity&apiKey=b98968fec60c4d94832c527a47d11028",
+      url: "https://newsapi.org/v2/everything?q=" + searchTerm + "&from="+yyyy+"-"+mm+"-"+dd1+"&sortBy=popularity&apiKey=b98968fec60c4d94832c527a47d11028",
       type: "GET",
       async: true,
       success: function(data) {
         for (let i = 0; i < data.articles.length; i++) {
           let source = data.articles[i].source;
           if (data.articles[i].author !== null && source.id !== null) {
-            $('#output').prepend('<div id="news' + i + '" class="view">News<div class="well"><a href="' + data.articles[i].url + '"><img src="' + data.articles[i].urlToImage + '"><h4>' + data.articles[i].author + '</h4><p>' + data.articles[i].title + '</p></a><button id="addNews"' + i + '" class="button">Add to Favorite</button></div></div>');
+            $('#output').prepend('<div id="news' + i + '" class="view">News: <b>'+ source.name +'</b><div class="well"><a href="' + data.articles[i].url + '"><img src="' + data.articles[i].urlToImage + '"><h4>' + data.articles[i].author + '</h4><p>' + data.articles[i].title + '</p></a><button id="addNews' + i + '" class="button">Add to Favorite</button></div></div>');
           }
         }
       },
@@ -90,7 +94,7 @@ function businessSearch() {
         for (let i = 0; i < data.articles.length; i++) {
           let source = data.articles[i].source;
           if (data.articles[i].author !== null && source.id !== null) {
-            $('#output').prepend('<div id="news' + i + '" class="view">Business<div class="well"><a href="' + data.articles[i].url + '"><img src="' + data.articles[i].urlToImage + '"><h4>' + data.articles[i].author + '</h4><p>' + data.articles[i].title + '</p></a><button id="addNews' + i + '" class="button">Add to Favorite</button></div></div>');
+            $('#output').prepend('<div id="business' + i + '" class="view">Business: <b>'+ source.name +'</b><div class="well"><a href="' + data.articles[i].url + '"><img src="' + data.articles[i].urlToImage + '"><h4>' + data.articles[i].author + '</h4><p>' + data.articles[i].title + '</p></a><button id="addBusiness' + i + '" class="button">Add to Favorite</button></div></div>');
           }
         }
       },
@@ -122,7 +126,7 @@ function techCrunchSearch() {
         for (let i = 0; i < data.articles.length; i++) {
           let source = data.articles[i].source;
           if (data.articles[i].author !== null && source.id !== null) {
-            $('#output').prepend('<div id="news' + i + '" class="view">TechCrunch<div class="well"><a href="' + data.articles[i].url + '"><img src="' + data.articles[i].urlToImage + '"><h4>' + data.articles[i].author + '</h4><p>' + data.articles[i].title + '</p></a><button id="addNews' + i + '" class="button">Add to Favorite</button></div></div>');
+            $('#output').prepend('<div id="tech' + i + '" class="view">TechCrunch: <b>'+ source.name +'</b><div class="well"><a href="' + data.articles[i].url + '"><img src="' + data.articles[i].urlToImage + '"><h4>' + data.articles[i].author + '</h4><p>' + data.articles[i].title + '</p></a><button id="addTech' + i + '" class="button">Add to Favorite</button></div></div>');
           }
         }
       },
@@ -154,7 +158,7 @@ function wallStreetSearch() {
         for (let i = 0; i < data.articles.length; i++) {
           let source = data.articles[i].source;
           if (data.articles[i].author !== null && source.id !== null) {
-            $('#output').prepend('<div id="news' + i + '" class="view">Wall Street Journal<div class="well"><a href="' + data.articles[i].url + '"><img src="' + data.articles[i].urlToImage + '"><h4>' + data.articles[i].author + '</h4><p>' + data.articles[i].title + '</p></a><button id="addNews' + i + '" class="button">Add to Favorite</button></div></div>');
+            $('#output').prepend('<div id="wall' + i + '" class="view">Wall Street Journal: <b>'+ source.name +'</b><div class="well"><a href="' + data.articles[i].url + '"><img src="' + data.articles[i].urlToImage + '"><h4>' + data.articles[i].author + '</h4><p>' + data.articles[i].title + '</p></a><button id="addWall' + i + '" class="button">Add to Favorite</button></div></div>');
           }
         }
       },
@@ -185,7 +189,7 @@ function googleSearch() {
         for (let i = 0; i < data.articles.length; i++) {
           let source = data.articles[i].source;
           if (data.articles[i].author !== null && source.id !== null) {
-            $('#google').prepend('<div id="news' + i + '" class="view"><div class="well"><a href="' + data.articles[i].url + '"><img src="' + data.articles[i].urlToImage + '"><p>' + data.articles[i].title + '</p></a><button id="addNews' + i + '" class="button">Add to Favorite</button></div></div>');
+            $('#google').prepend('<div id="google' + i + '" class="view"><div class="well"><a href="' + data.articles[i].url + '"><img src="' + data.articles[i].urlToImage + '"><p>' + data.articles[i].title + '</p></a><button id="addGoogle' + i + '" class="button">Add to Favorite</button></div></div>');
           }
         }
       },
@@ -209,14 +213,15 @@ function popularSearch() {
   $('#output').html('');
   let searchTerm = $('#searchTerm').val();
   $.ajax({
-      url: "https://newsapi.org/v2/everything?q=apple&from=2019-04-21&to=2019-04-21&sortBy=popularity&apiKey=b98968fec60c4d94832c527a47d11028",
+      url: "https://newsapi.org/v2/everything?q=apple&from="+yyyy+"-"+mm+"-"+dd1+"&to="+yyyy+"-"+mm+"-"+dd+"&sortBy=popularity&apiKey=b98968fec60c4d94832c527a47d11028",
       type: "GET",
       async: true,
       success: function(data) {
+      	console.log(data);
         for (let i = 0; i < data.articles.length; i++) {
           let source = data.articles[i].source;
           if (data.articles[i].author !== null && source.id !== null) {
-            $('#output').prepend('<div id="news' + i + '" class="view">Popular<div class="well"><a href="' + data.articles[i].url + '"><img src="' + data.articles[i].urlToImage + '"><h4>' + data.articles[i].author + '</h4><p>' + data.articles[i].title + '</p></a><button id="addNews' + i + '" class="button">Add to Favorite</button></div></div>');
+            $('#output').prepend('<div id="popular' + i + '" class="view">Popular: <b>'+ source.name +'</b><div class="well"><a href="' + data.articles[i].url + '"><img src="' + data.articles[i].urlToImage + '"><h4>' + data.articles[i].author + '</h4><p>' + data.articles[i].title + '</p></a><button id="addPopular' + i + '" class="button">Add to Favorite</button></div></div>');
           }
         }
       },
@@ -296,9 +301,8 @@ $(function() {
 
 $(document).on('click', '.view', function(e) {
   var target = $(event.target);
-  if (!(target.is("button"))) {
-    return false;
-  } else {
+  if (target.is("button")) {
+    
     let id = document.getElementById(this.id);
     $('.popular .button').remove();
     $('.popular .well').addClass('bestView');
@@ -307,10 +311,13 @@ $(document).on('click', '.view', function(e) {
     console.log(bestObject);
     localStorage.setItem('best', JSON.stringify(bestObject));
     localStorage.getItem('best');
+
   }
+
   $('#popular').html(JSON.parse(localStorage.getItem('best')));
   $('.popular .button').remove();
   $('.popular .well').attr("heigth", "200");
+
 });
 
 
@@ -345,8 +352,6 @@ $('#dropdownList').on('change', function() {
     techCrunchSearch();
   } else if (selectVal === '6') {
     wallStreetSearch();
-  } else if (selectVal === '7') {
-    popularSearch();
   } else if (selectVal === '1') {
     $('#output').html('');
   }
@@ -372,3 +377,8 @@ $(document).on('click', '#clearLast', function() {
     $('#last').html(JSON.parse(localStorage.getItem('favorite')));
   }
 });
+
+$(document).on('click', '#popularNews', function() {
+  $('#output').html('');
+  popularSearch()
+})
